@@ -16,6 +16,24 @@ sap.ui.define([
 				}
 
 				return parseFloat(sValue).toFixed(2);
+			},
+			/**
+			 * Return the Registration Numbers for the Event
+			 *
+			 * @public
+			 * @param {string} Event ID for which the Registration Numbers should be returned
+			 * @returns {string} Registration Numbers
+			 */
+			countParticipants : function (sEventID) {
+			    // 
+			    if (sEventID) {
+			    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
+			    	var oModel = this.getView().getModel();
+			    	var registeredParticipants = oModel.getProperty("/Events("+sEventID+")/Participants").length;
+			    	var maxParticipants = oModel.getProperty("/Events("+sEventID+")/MaxParticipants");
+			    	var freeSlots = maxParticipants - registeredParticipants;
+			    	return oResourceBundle.getText("masterRegistrationNumbers", [freeSlots, registeredParticipants, maxParticipants]);
+			    }
 			}
 		};
 

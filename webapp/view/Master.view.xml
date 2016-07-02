@@ -37,7 +37,11 @@
 						sorter: {
 							path: 'Location',
 							descending: false
-							},
+						},
+						parameters:{
+							expand:'Participants', 
+							select:'ID,Location,EventDate,MaxParticipants,Participants/ID,Participants/FirstName,Participants/LastName,Participants/Twitter'
+						},
 						groupHeaderFactory: '.createGroupHeader'
 					}"
 					busyIndicatorDelay="{masterView>/delay}"
@@ -69,8 +73,10 @@
 								formatOptions: {
 									style: 'medium'
 								}
-							}"
-							numberUnit="{MaxParticipants}">
+							}">
+						<attributes>
+							<ObjectAttribute id="Participants" text="{path : 'ID', formatter : '.formatter.countParticipants'}" />
+						</attributes>
 					</ObjectListItem>
 				</items>
 			</List>
