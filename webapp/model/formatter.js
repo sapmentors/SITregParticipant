@@ -24,14 +24,14 @@ sap.ui.define([
 			 * @param {string} Event ID for which the Registration Numbers should be returned
 			 * @returns {string} Registration Numbers
 			 */
-			countParticipants : function (sEventID) {
+			registrationNumbers : function (sEventID) {
 			    // 
 			    if (sEventID) {
 			    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
 			    	var oModel = this.getView().getModel();
-			    	var registeredParticipants = oModel.getProperty("/Events("+sEventID+")/Participants").length;
+			    	var registeredParticipants = oModel.getProperty("/Events("+sEventID+")/RegistrationNumbers/Participants");
 			    	var maxParticipants = oModel.getProperty("/Events("+sEventID+")/MaxParticipants");
-			    	var freeSlots = maxParticipants - registeredParticipants;
+			    	var freeSlots = oModel.getProperty("/Events("+sEventID+")/RegistrationNumbers/Free");
 			    	return oResourceBundle.getText("masterRegistrationNumbers", [freeSlots, registeredParticipants, maxParticipants]);
 			    }
 			}

@@ -39,8 +39,7 @@
 							descending: false
 						},
 						parameters:{
-							expand:'Participants', 
-							select:'ID,Location,EventDate,MaxParticipants,Participants/ID,Participants/FirstName,Participants/LastName,Participants/Twitter'
+							expand:'RegistrationNumbers'
 						},
 						groupHeaderFactory: '.createGroupHeader'
 					}"
@@ -75,7 +74,7 @@
 								}
 							}">
 						<attributes>
-							<ObjectAttribute id="Participants" text="{path : 'ID', formatter : '.formatter.countParticipants'}" />
+							<ObjectAttribute id="registrationNumbers" text="{path : 'ID', formatter : '.formatter.registrationNumbers'}" />
 						</attributes>
 					</ObjectListItem>
 				</items>
