@@ -20,10 +20,10 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
-					<Column>
+					<Column id="ParticipantName">
 						<Text text="{i18n>detailLineItemTableIDColumn}"/>
 					</Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+					<Column id="Twitter" minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
 						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
 					</Column>
 				</columns>
