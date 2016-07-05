@@ -24,16 +24,9 @@ sap.ui.define([
 			 * @param {string} Event ID for which the Registration Numbers should be returned
 			 * @returns {string} Registration Numbers
 			 */
-			registrationNumbers : function (sEventID) {
-			    // 
-			    if (sEventID) {
-			    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
-			    	var oModel = this.getView().getModel();
-			    	var registeredParticipants = oModel.getProperty("/Events("+sEventID+")/RegistrationNumbers/Participants");
-			    	var maxParticipants = oModel.getProperty("/Events("+sEventID+")/MaxParticipants");
-			    	var freeSlots = oModel.getProperty("/Events("+sEventID+")/RegistrationNumbers/Free");
-			    	return oResourceBundle.getText("masterRegistrationNumbers", [freeSlots, registeredParticipants, maxParticipants]);
-			    }
+			registrationNumbers : function (iMaxParticipants, iParticipants, iFree) {
+		    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
+		    	return oResourceBundle.getText("masterRegistrationNumbers", [iFree, iParticipants, iMaxParticipants]);
 			}
 		};
 

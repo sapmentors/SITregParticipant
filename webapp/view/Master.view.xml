@@ -74,7 +74,16 @@
 								}
 							}">
 						<attributes>
-							<ObjectAttribute id="registrationNumbers" text="{path : 'ID', formatter : '.formatter.registrationNumbers'}" />
+							<ObjectAttribute 
+								id="registrationNumbers" 
+								text="{
+									parts: [
+										{path: 'MaxParticipants'},
+										{path: 'RegistrationNumbers/Participants'},
+										{path: 'RegistrationNumbers/Free'}
+									],
+									formatter : '.formatter.registrationNumbers'
+								}" />
 						</attributes>
 					</ObjectListItem>
 				</items>
