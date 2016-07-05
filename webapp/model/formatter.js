@@ -25,8 +25,10 @@ sap.ui.define([
 			 * @returns {string} Registration Numbers
 			 */
 			registrationNumbers : function (iMaxParticipants, iParticipants, iFree) {
-		    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
-		    	return oResourceBundle.getText("masterRegistrationNumbers", [iFree, iParticipants, iMaxParticipants]);
+				if(iMaxParticipants !== null) {
+			    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
+			    	return oResourceBundle.getText("masterRegistrationNumbers", [iFree, iParticipants, iMaxParticipants]);
+				}
 			}
 		};
 
