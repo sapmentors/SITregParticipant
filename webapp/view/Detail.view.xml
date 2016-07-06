@@ -15,18 +15,16 @@
 				<items>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
 						<f:SimpleForm editable="false" layout="ResponsiveGridLayout">
-							<Label text="StartTime"/>
+							<Label text="{i18n>detailIconTabBarInfoStartTime}"/>
 							<Text text="{ 
 								path: 'StartTime',
 								type : 'sap.ui.model.type.Time'
 							}" />
-							<Label text="EndTime"/>
+							<Label text="{i18n>detailIconTabBarInfoEndTime}"/>
 							<Text text="{ 
 								path: 'EndTime',
 								type : 'sap.ui.model.type.Time'
 							}"/>
-							<Label text="MaxParticipants"/>
-							<Text text="{MaxParticipants}"/>
 						</f:SimpleForm>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}">
@@ -40,18 +38,34 @@
 					</Toolbar>
 				</headerToolbar>
 				<columns>
+					<Column id="ParticipantID">
+						<Text text="ID"/>
+					</Column>
 					<Column id="ParticipantName">
-						<Text text="{i18n>detailLineItemTableIDColumn}"/>
+						<Text text="{i18n>detailLineItemTableParticipantName}"/>
 					</Column>
 					<Column id="Twitter" minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-						<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+						<Text text="{i18n>detailLineItemTableTwitter}"/>
+					</Column>
+					<Column id="RSVP" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>detailLineItemTableRSVP}"/>
+					</Column>
+					<Column id="PreEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>detailLineItemTablePreEveningEvent}"/>
+					</Column>
+					<Column id="PostEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>detailLineItemTablePostEveningEvent}"/>
 					</Column>
 				</columns>
 				<items>
 					<ColumnListItem>
 						<cells>
-							<ObjectIdentifier title="{FirstName} {LastName}" text="{BioURL}"/>
+							<ObjectIdentifier text="{ID}" />
+							<Link href="{BioURL}" target="_blank" text="{FirstName} {LastName}" />
 							<ObjectNumber unit="{Twitter}"/>
+							<Text text="{RSVP}"/>
+							<Text text="{PreEveningEvent}"/>
+							<Text text="{PostEveningEvent}"/>
 						</cells>
 					</ColumnListItem>
 				</items>
