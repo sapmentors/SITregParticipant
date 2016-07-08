@@ -81,8 +81,8 @@
 
 		<semantic:positiveAction>
 			<semantic:PositiveAction 
-				text="{= ${Participant/ID} !== '' ? ${i18n>detailUpdateRegistration} : ${i18n>detailRegister} }" 
-				press="{= ${Participant/ID} !== '' ? 'onUpdateRegistration' : 'onRegister' }" />
+				text="{= ${Participant} === null ? ${i18n>detailRegister} : ${i18n>detailUpdateRegistration} }" 
+				press="{= ${Participant} === null ? 'onRegister' : 'onUpdateRegistration' }" />
 		</semantic:positiveAction>
 
 		<semantic:sendEmailAction>

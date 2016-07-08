@@ -154,6 +154,7 @@ sap.ui.define([
 					oObject = oView.getModel().getObject(sPath),
 					sObjectLocation = oObject.Location,
 					sObjectEventDate = oObject.EventDate,
+					// sObjectParticipantID = oObject.Participant.ID,
 					oViewModel = this.getModel("detailView");
 
 				this.getOwnerComponent().oListSelector.selectAListItem(sPath);
