@@ -104,7 +104,7 @@ sap.ui.define([
 					var sObjectPath = this.getModel().createKey("Events", {
 						ID :  sObjectId
 					});
-					this._bindView("/" + sObjectPath);
+					this._bindView("/" + sObjectPath, {expand: "Participant"} );
 				}.bind(this));
 			},
 
@@ -152,7 +152,6 @@ sap.ui.define([
 				var sPath = oElementBinding.getPath(),
 					oResourceBundle = this.getResourceBundle(),
 					oObject = oView.getModel().getObject(sPath),
-					sObjectId = oObject.ID,
 					sObjectLocation = oObject.Location,
 					sObjectEventDate = oObject.EventDate,
 					oViewModel = this.getModel("detailView");

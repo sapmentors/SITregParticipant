@@ -35,11 +35,11 @@
 					items="{
 						path: '/Events',
 						sorter: {
-							path: 'Location',
+							path: 'EventDate',
 							descending: false
 						},
 						parameters:{
-							expand:'RegistrationNumbers'
+							expand:'RegistrationNumbers,Participant'
 						},
 						groupHeaderFactory: '.createGroupHeader'
 					}"
@@ -84,6 +84,7 @@
 									],
 									formatter : '.formatter.registrationNumbers'
 								}" />
+							<ObjectAttribute text="Your RSVP: {Participant/RSVP}" />
 						</attributes>
 					</ObjectListItem>
 				</items>

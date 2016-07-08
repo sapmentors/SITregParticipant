@@ -25,13 +25,20 @@
 								path: 'EndTime',
 								type : 'sap.ui.model.type.Time'
 							}"/>
+							<Label text="Your RSVP"/>
+							<Text text="{Participant/RSVP}"/>
 						</f:SimpleForm>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}">
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" width="auto" items="{Participants}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+			<Table id="lineItemsList" width="auto" 
+				items="{Participants}" 
+				updateFinished="onListUpdateFinished" 
+				noDataText="{i18n>detailLineItemTableNoDataText}" 
+				busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
+				class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -71,6 +78,12 @@
 				</items>
 			</Table>
 		</semantic:content>
+
+		<semantic:positiveAction>
+			<semantic:PositiveAction 
+				text="{= ${Participant/ID} !== '' ? ${i18n>detailUpdateRegistration} : ${i18n>detailRegister} }" 
+				press="{= ${Participant/ID} !== '' ? 'onUpdateRegistration' : 'onRegister' }" />
+		</semantic:positiveAction>
 
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>

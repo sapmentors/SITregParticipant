@@ -12,7 +12,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true
+    "buildRequired": false,
+    "lastBuildDateTime": "Fri, 08 Jul 2016 18:49:01 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -42,8 +43,8 @@
     }
   ],
   "mockpreview": {
-    "mockUri": "/destinations/HANAMDC/com/sap/sapmentors/sitreg/odataparticipant/service.xsodata",
-    "metadataFilePath": "",
+    "mockUri": "/destinations/HANAMDC/com/sap/sapmentors/sitreg/odataparticipant/service.xsodata/",
+    "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
     "mockRequestsFilePath": ""
@@ -66,5 +67,10 @@
     "notifyBeforePushLevel": "Error",
     "blockPush": false,
     "blockPushLevel": "Error"
+  },
+  "hcpdeploy": {
+    "account": "s0001142741trial",
+    "name": "sitregparticipant",
+    "lastVersionWeTriedToDeploy": "0.0.1"
   }
 }
