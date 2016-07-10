@@ -40,7 +40,8 @@ sap.ui.define([
 			 * @param {object} oEvent an event containing the total number of items in the list
 			 */
 			onRegister: function(oEvent){
-				//this.getRouter().navTo("createentity");
+				//this.getRouter().navTo("register");
+				var sTargets = this.getRouter().getTargets();
 				this.getRouter().getTargets().display("register");
 			
 			},

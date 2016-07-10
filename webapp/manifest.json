@@ -120,7 +120,7 @@
 					"pattern": "RegisterParticipiant",
 					"name": "register",
 					"target": [
-						"add"
+						"register"
 					]
 				}
 
@@ -139,6 +139,7 @@
 				},
 				"register": {
 					"viewName": "CreateEntity",
+					"viewId": "createentity",
 					"viewLevel": 3
 				},	
 				"detailObjectNotFound": {
