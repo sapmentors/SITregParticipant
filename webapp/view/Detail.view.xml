@@ -78,13 +78,18 @@
 				</items>
 			</Table>
 		</semantic:content>
-
 		<semantic:positiveAction>
 			<semantic:PositiveAction 
-				text="{= ${Participant} === null ? ${i18n>detailRegister} : ${i18n>detailUpdateRegistration} }" 
-				press="{= ${Participant} === null ? 'onRegister' : 'onUpdateRegistration' }" />
+				text="{i18n>detailRegister}" 
+				press="onRegister" 
+				visible="{= ${Participant} === null ? true : false}"/>
 		</semantic:positiveAction>
-
+		<semantic:editAction>
+			<semantic:EditAction 
+				id="edit" 
+				press="onUpdateRegistration"
+				visible="{= ${Participant} === null ? false :  true }"/>
+		</semantic:editAction>		
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>

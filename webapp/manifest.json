@@ -115,7 +115,15 @@
 						"master",
 						"object"
 					]
+				},
+				{
+					"pattern": "RegisterParticipiant",
+					"name": "register",
+					"target": [
+						"add"
+					]
 				}
+
 			],
 			"targets": {
 				"master": {
@@ -129,6 +137,10 @@
 					"viewId": "detail",
 					"viewLevel": 2
 				},
+				"register": {
+					"viewName": "CreateEntity",
+					"viewLevel": 3
+				},	
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",
 					"viewId": "detailObjectNotFound"

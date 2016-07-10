@@ -36,6 +36,16 @@ sap.ui.define([
 			/* =========================================================== */
 
 			/**
+			 * Event handler when the Register button has been clicked
+			 * @param {object} oEvent an event containing the total number of items in the list
+			 */
+			onRegister: function(oEvent){
+				//this.getRouter().navTo("createentity");
+				this.getRouter().getTargets().display("register");
+			
+			},
+			
+			/**
 			 * Event handler when the share by E-Mail button has been clicked
 			 * @public
 			 */
