@@ -12,8 +12,8 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": true,
-    "lastBuildDateTime": "Fri, 08 Jul 2016 18:49:01 GMT"
+    "buildRequired": false,
+    "lastBuildDateTime": "Tue, 12 Jul 2016 18:09:06 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -71,6 +71,6 @@
   "hcpdeploy": {
     "account": "s0001142741trial",
     "name": "sitregparticipant",
-    "lastVersionWeTriedToDeploy": "0.0.1"
+    "lastVersionWeTriedToDeploy": "0.0.2"
   }
 }

@@ -43,6 +43,13 @@
         "name": "HANAMDC"
       },
       "description": "HANA MDC XS"
+    },
+    {
+      "path": "/services/userapi",
+      "target": {
+        "type": "service",
+        "name": "userapi"
+      }
     }
   ],
   "cacheControl": [
