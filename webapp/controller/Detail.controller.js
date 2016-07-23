@@ -42,7 +42,7 @@ sap.ui.define([
 			onRegister: function(oEvent){
 				//this.getRouter().navTo("register");
 				var sObjectPath = this.getView().getElementBinding().getPath();
-				this.getRouter().navTo("register", {
+				this.getRouter().getTargets().display("register", {
 					mode: "create",
 					objectId: this.getView().getBindingContext().getProperty("ID"),
 					objectPath: sObjectPath

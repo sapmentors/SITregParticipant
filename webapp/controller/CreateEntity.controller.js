@@ -13,9 +13,11 @@ sap.ui.define([
 		formatter: formatter,
 
 		onInit: function() {
-			
+
+			// Register to the add route matched
 			this.getRouter().getTargets().getTarget("register").attachDisplay(null, this._onDisplay, this);
 			this._oODataModel = this.getOwnerComponent().getModel();
+		    this._oCurrentUser = this.getOwnerComponent().getModel("currentUser");
 			this._oResourceBundle = this.getResourceBundle();
 			this._oViewModel = new JSONModel({
 				enableCreate: false,
@@ -38,7 +40,7 @@ sap.ui.define([
 						this._oViewModel.setProperty("/enableCreate", false);
 					}
 				}
-			}).bind(this);
+			});
 
 		},
 
@@ -192,7 +194,12 @@ sap.ui.define([
 			// create default properties
 			var oProperties = {
 				ID: "" + parseInt(Math.random() * 10000, 10),
-				EventID: " " + oData.eventID
+				EventID: "" + oData.objectId,
+				FirstName: this._oCurrentUser.getProperty("/firstName"),
+				LastName: this._oCurrentUser.getProperty("/lastName"),
+				EMail: this._oCurrentUser.getProperty("/email"),
+				RSVP: "Y",
+				"History.CreatedBy" : ""
 			};
 			
 			if (oEvent.getParameter("name") && oEvent.getParameter("name") !== "create") {
@@ -204,7 +211,7 @@ sap.ui.define([
 
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("createViewTitle"));
 			this._oViewModel.setProperty("/mode", "create");
-			var oContext = this._oODataModel.createEntry("participant", {
+			var oContext = this._oODataModel.createEntry("/Participant", {
 				properties: oProperties,
 				success: this._fnEntityCreated.bind(this),
 				error: this._fnEntityCreationFailed.bind(this)
