@@ -116,7 +116,7 @@ sap.ui.define([
 			 * @public
 			 */
 			onNavBack : function() {
-				var sPreviousHash = History.getInstance().getPreviousHash();
+				var sPreviousHash = this.History.getInstance().getPreviousHash();
 
 				if (sPreviousHash !== undefined) {
 					history.go(-1);

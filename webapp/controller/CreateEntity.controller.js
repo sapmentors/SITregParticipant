@@ -35,10 +35,10 @@ sap.ui.define([
 				var aMessages = oEvent.getSource().getModel().getData();
 				for (var i = 0; i < aMessages.length; i++) {
 					if (aMessages[i].type === "Error" && !aMessages[i].technical) {
-						that._oViewModel.setProperty("/enableCreate", false);
+						this._oViewModel.setProperty("/enableCreate", false);
 					}
 				}
-			});
+			}).bind(this);
 
 		},
 
