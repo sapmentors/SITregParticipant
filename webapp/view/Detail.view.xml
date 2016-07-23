@@ -38,7 +38,8 @@
 				updateFinished="onListUpdateFinished" 
 				noDataText="{i18n>detailLineItemTableNoDataText}" 
 				busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
-				class="sapUiResponsiveMargin">
+				class="sapUiResponsiveMargin"
+				 >
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -87,7 +88,7 @@
 		<semantic:editAction>
 			<semantic:EditAction 
 				id="edit" 
-				press="onUpdateRegistration"
+				press="onEdit"
 				visible="{= ${Participant} === null ? false :  true }"/>
 		</semantic:editAction>		
 		<semantic:sendEmailAction>

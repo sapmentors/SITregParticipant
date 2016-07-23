@@ -9,7 +9,7 @@ sap.ui.define([
 		return BaseController.extend("com.sap.sapmentors.sitreg.registration.controller.Detail", {
 
 			formatter: formatter,
-
+			
 			/* =========================================================== */
 			/* lifecycle methods                                           */
 			/* =========================================================== */
@@ -41,11 +41,37 @@ sap.ui.define([
 			 */
 			onRegister: function(oEvent){
 				//this.getRouter().navTo("register");
-				var sTargets = this.getRouter().getTargets();
-				this.getRouter().getTargets().display("register");
+				var sObjectPath = this.getView().getElementBinding().getPath();
+				var sEventID = this.getView().getBindingContext().getProperty("ID");
+				this.getRouter().getTargets().display("register", {
+					mode: "create",
+					eventID: sEventID,
+					objectPath: sObjectPath
+				});
 			
 			},
 			
+			/**
+			 * Event handler in case of edit the participant registration.  
+			 * @param {object} oEvent contain the selected item
+			 * @public
+			 */
+			onEdit : function (oEvent) {
+				
+				//this.getModel("appView").setProperty("/addEnabled", false);
+				//var table = this.getView().byId("lineItemsList");
+				//var rowItems = table.getSelectedItems();
+				//var item  = oEvent.getParameter("item");
+				//var asnnum = rowItems[0].mAggregations.cells[1].getProperty("ParticipantID");
+				
+				this.getModel("appView").setProperty("/addEnabled", false);
+				var sObjectPath = this.getView().getElementBinding().getPath();
+				this.getRouter().getTargets().display("register", {
+					mode: "update",
+					objectPath: sObjectPath
+				});
+			},
+
 			/**
 			 * Event handler when the share by E-Mail button has been clicked
 			 * @public
@@ -60,7 +86,7 @@ sap.ui.define([
 				);
 			},
 
-
+			
 			/**
 			 * Updates the item count within the line item table's header
 			 * @param {object} oEvent an event containing the total number of items in the list

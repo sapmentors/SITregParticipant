@@ -14,6 +14,7 @@ sap.ui.define([
 
 				oViewModel = new JSONModel({
 					busy : true,
+					addEnabled : false,
 					delay : 0
 				});
 				this.setModel(oViewModel, "appView");

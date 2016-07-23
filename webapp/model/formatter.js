@@ -3,6 +3,30 @@ sap.ui.define([
 		"use strict";
 
 		return {
+
+			/**
+			 * convert RSVP value from String to Boolean
+			 *
+			 * @public
+			 * @param {string} sValue value to be formatted
+			 * @returns {string} true or false
+			 */
+			rsvpSwitchValue : function (sValue) {
+				
+				var bResult = new sap.ui.model.type.Boolean();
+				
+				if (!sValue) {
+					return true;
+				}
+				if(sValue === "0"){
+					bResult = false;
+				}else{
+					bResult = true;
+				}
+				return bResult;				
+
+			},
+
 			/**
 			 * Rounds the currency value to 2 digits
 			 *
