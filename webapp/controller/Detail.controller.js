@@ -42,10 +42,9 @@ sap.ui.define([
 			onRegister: function(oEvent){
 				//this.getRouter().navTo("register");
 				var sObjectPath = this.getView().getElementBinding().getPath();
-				var sEventID = this.getView().getBindingContext().getProperty("ID");
-				this.getRouter().getTargets().display("register", {
+				this.getRouter().navTo("register", {
 					mode: "create",
-					eventID: sEventID,
+					objectId: this.getView().getBindingContext().getProperty("ID"),
 					objectPath: sObjectPath
 				});
 			
@@ -68,6 +67,7 @@ sap.ui.define([
 				var sObjectPath = this.getView().getElementBinding().getPath();
 				this.getRouter().getTargets().display("register", {
 					mode: "update",
+					objectId: this.getView().getBindingContext().getProperty("ID"),
 					objectPath: sObjectPath
 				});
 			},

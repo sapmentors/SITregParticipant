@@ -121,7 +121,7 @@
 					]
 				},
 				{
-					"pattern": "RegisterParticipiant",
+					"pattern": "Events/{objectId}/RegisterParticipiant",
 					"name": "register",
 					"target": [
 						"register"
