@@ -5,6 +5,32 @@ sap.ui.define([
 		return {
 
 			/**
+			 * convert Preevening and Posteveningevent value 
+			 * Y --> Yes
+			 * N --> No
+			 * M --> Maybe
+			 * @public
+			 * @param {string} sValue value to be formatted
+			 * @returns {string} true or false
+			 */
+			eventValue : function (sValue) {
+				
+				var sResult = new sap.ui.model.type.String();
+				
+				if (sValue === "Y") {
+					sResult = "Yes";
+				}
+				else if(sValue === "N"){
+					sResult = "No";
+				}
+				else if(sValue === "M" || sValue === null){
+					sResult = "Maybe";
+				}
+				return sResult;				
+
+			},
+
+			/**
 			 * convert RSVP value from String to Boolean
 			 *
 			 * @public

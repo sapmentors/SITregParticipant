@@ -72,8 +72,8 @@
 							<Link href="{BioURL}" target="_blank" text="{FirstName} {LastName}" />
 							<ObjectNumber unit="{Twitter}"/>
 							<Text text="{RSVP}"/>
-							<Text text="{PreEveningEvent}"/>
-							<Text text="{PostEveningEvent}"/>
+							<Text text="{ path: 'PreEveningEvent',  formatter : '.formatter.eventValue' }"/>
+							<Text text="{ path: 'PostEveningEvent',  formatter : '.formatter.eventValue' }"/>
 						</cells>
 					</ColumnListItem>
 				</items>
