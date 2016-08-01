@@ -52,6 +52,15 @@
       }
     }
   ],
+  "securityConstraints": [
+       {
+            "permission": "AccessApplicationDescriptor",
+            "description": "Access application descriptor",
+            "protectedPaths": [
+               "/neo-app.json"
+            ]
+       }
+  ],
   "cacheControl": [
     {
       "directive": "private",
