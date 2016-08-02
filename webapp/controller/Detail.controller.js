@@ -41,7 +41,7 @@ sap.ui.define([
 			 */
 			onRegister: function(oEvent){
 				//this.getRouter().navTo("register");
-				var sObjectPath = this.getView().getElementBinding().getPath();
+				var sObjectPath = this.getView().getElementBinding().getPath() + '/Participant';
 				this.getRouter().getTargets().display("register", {
 					mode: "create",
 					objectId: this.getView().getBindingContext().getProperty("ID"),
@@ -64,7 +64,7 @@ sap.ui.define([
 				//var asnnum = rowItems[0].mAggregations.cells[1].getProperty("ParticipantID");
 				
 				this.getModel("appView").setProperty("/addEnabled", false);
-				var sObjectPath = this.getView().getElementBinding().getPath();
+				var sObjectPath = this.getView().getElementBinding().getPath() + '/Participant';
 				this.getRouter().getTargets().display("register", {
 					mode: "update",
 					objectId: this.getView().getBindingContext().getProperty("ID"),

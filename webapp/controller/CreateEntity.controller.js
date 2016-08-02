@@ -310,13 +310,12 @@ sap.ui.define([
 			}
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("createViewTitle"));
 			this._oViewModel.setProperty("/mode", "create");
-			var oContext = this._oODataModel.createEntry("/Participant", {
+			var oContext = this._oODataModel.createEntry(oData.objectPath, {
 				properties: oProperties,
 				success: this._fnEntityCreated.bind(this),
 				error: this._fnEntityCreationFailed.bind(this)
 			});
 			this.getView().setBindingContext(oContext); 
-			
 		},
 		/**
 		 * Handles the success of creating an object
