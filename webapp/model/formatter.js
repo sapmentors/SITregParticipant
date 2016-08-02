@@ -72,7 +72,9 @@ sap.ui.define([
 			 * Return the Registration Numbers for the Event
 			 *
 			 * @public
-			 * @param {string} Event ID for which the Registration Numbers should be returned
+			 * @param {int} iMaxParticipants Number of maximum participants
+			 * @param {int} iParticipants Number of current participants
+			 * @param {int} iFree Number of free places
 			 * @returns {string} Registration Numbers
 			 */
 			registrationNumbers : function (iMaxParticipants, iParticipants, iFree) {

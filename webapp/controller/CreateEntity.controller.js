@@ -52,6 +52,7 @@ sap.ui.define([
 		/**
 		 * Event handler (attached declaratively) for the view save button. Saves the changes added by the user. 
 		 * @function
+		 * @param {sap.ui.base.Event} oEvent the save event
 		 * @public
 		 */
 		onSave: function(oEvent) {
@@ -80,8 +81,8 @@ sap.ui.define([
 			this.getModel("appView").setProperty("/busy", true);
 			if (this._oViewModel.getProperty("/mode") === "edit") {
 				// attach to the request completed event of the batch
-				oModel.attachEventOnce("batchRequestCompleted", function(oEvent) {
-					var oParams = oEvent.getParameters();
+				oModel.attachEventOnce("batchRequestCompleted", function(oEvent2) {
+					var oParams = oEvent2.getParameters();
 					if (oParams.success) {
 						that._fnUpdateSuccess();
 					} else {
@@ -133,7 +134,6 @@ sap.ui.define([
 				history.go(-1);
 			} else {
 				// Otherwise we go backwards with a forward history
-				var bReplace = true;
 				this.getView().unbindElement();
 				this.getRouter().getTargets().display("object");
 				//this.getRouter().navTo("detail", {}, bReplace);
@@ -142,7 +142,7 @@ sap.ui.define([
 
 		/**
 		 * Event handler for Select Radio Button for RSVP
-		 * 
+		 * @param {sap.ui.base.Event} oEvent the onSelectRSVP event
 		 * @public
 		 */
 		onSelectRSVP: function(oEvent){
@@ -159,7 +159,7 @@ sap.ui.define([
 		
 		/**
 		 * Event handler for Select Radio Button for Pre Evening Event
-		 * 
+		 * @param {sap.ui.base.Event} oEvent onSelectPreEveningEvent
 		 * @public
 		 */
 		onSelectPreEveningEvent: function(oEvent){
@@ -176,7 +176,7 @@ sap.ui.define([
 
 		/**
 		 * Event handler for Select Radio Button for Post Evening Event
-		 * 
+		 * @param {sap.ui.base.Event} oEvent onSelectPostEveningEvent
 		 * @public
 		 */
 		onSelectPostEveningEvent: function(oEvent){
@@ -193,7 +193,7 @@ sap.ui.define([
 
 		/**
 		 * Event handler for Check Box for Receipt
-		 * 
+		 * @param {sap.ui.base.Event} oEvent onSelectReceipt
 		 * @public
 		 */
 		 onSelectReceipt: function(oEvent){
@@ -250,7 +250,6 @@ sap.ui.define([
 				history.go(-1);
 			} else {
 				// Otherwise we go backwards with a forward history
-				var bReplace = true;
 				this.getView().unbindElement();
 				this.getRouter().getTargets().display("object");
 				//this.getRouter().navTo("detail", {}, bReplace);
@@ -310,7 +309,7 @@ sap.ui.define([
 			}
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("createViewTitle"));
 			this._oViewModel.setProperty("/mode", "create");
-			var oContext = this._oODataModel.createEntry('/Participant', {
+			var oContext = this._oODataModel.createEntry("/Participant", {
 				properties: oProperties,
 				success: this._fnEntityCreated.bind(this),
 				error: this._fnEntityCreationFailed.bind(this)
