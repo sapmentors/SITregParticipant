@@ -57,21 +57,18 @@ sap.ui.define([
 		onSave: function(oEvent) {
 			var that = this,
 				oModel = this.getModel();
-
     		//Get the Path
     		var sPath =  oEvent.getSource().getBindingContext().getPath();
-			//Set the Selected value of the Radio Button
-			var sValue = this.getView().byId("idReceiptCompany").getValue();
-    		//this.getModel().setProperty(sPath + "/PreEveningEvent",this.getView().byId("idReceiptCompany").getValue());
-    		oModel.setProperty(sPath + "/FirstName",this.getView().byId("idFirstName").getValue());
-    		oModel.setProperty(sPath + "/LastName",this.getView().byId("idLastName").getValue());
-    		oModel.setProperty(sPath + "/BioURL",this.getView().byId("idBioURL").getValue());
-    		oModel.setProperty(sPath + "/Twitter",this.getView().byId("idTwitter").getValue());
-    		oModel.setProperty(sPath + "/EMail",this.getView().byId("idEMail").getValue());
-    		oModel.setProperty(sPath + "/MobilePhone",this.getView().byId("idMobilePhone").getValue());
+    		// TODO added by Gregor, 2016-08-02: There should be a better way than reading all values and adding to the model
+    		oModel.setProperty(sPath + "/FirstName"     ,this.getView().byId("idFirstName").getValue());
+    		oModel.setProperty(sPath + "/LastName"      ,this.getView().byId("idLastName").getValue());
+    		oModel.setProperty(sPath + "/BioURL"        ,this.getView().byId("idBioURL").getValue());
+    		oModel.setProperty(sPath + "/Twitter"       ,this.getView().byId("idTwitter").getValue());
+    		oModel.setProperty(sPath + "/EMail"         ,this.getView().byId("idEMail").getValue());
+    		oModel.setProperty(sPath + "/MobilePhone"   ,this.getView().byId("idMobilePhone").getValue());
     		oModel.setProperty(sPath + "/ReceiptCompany",this.getView().byId("idReceiptCompany").getValue());
     		oModel.setProperty(sPath + "/ReceiptAddress",this.getView().byId("idReceiptAddress").getValue());
-				
+
 			// abort if the  model has not been changed
 			if (!oModel.hasPendingChanges()) {
 				MessageBox.information(this._oResourceBundle.getText("noChangesMessage"), {

@@ -72,5 +72,8 @@
     "account": "s0001142741trial",
     "name": "sitregparticipant",
     "lastVersionWeTriedToDeploy": "0.0.4"
+  },
+  "hybrid.facadeconfig": {
+    "bFacade": false
   }
 }
