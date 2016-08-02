@@ -322,6 +322,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_fnUpdateSuccess: function() {
+			this._oODataModel.refresh();
 			this.getModel("appView").setProperty("/busy", false);
 			this.getView().unbindObject();
 			this.getRouter().getTargets().display("object");
@@ -332,6 +333,7 @@ sap.ui.define([
 		 * @private
 		 */
 		_fnEntityCreated: function(oData) {
+			this._oODataModel.refresh();
 			var sObjectPath = this.getModel().createKey("Participant", oData);
 			this.getModel("appView").setProperty("/itemToSelect", "/" + sObjectPath);
 			//save last created
