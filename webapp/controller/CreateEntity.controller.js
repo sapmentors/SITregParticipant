@@ -142,6 +142,23 @@ sap.ui.define([
 				//this.getRouter().navTo("detail", {}, bReplace);
 			}
 		},
+
+		/**
+		 * Event handler for Select Radio Button for RSVP
+		 * 
+		 * @public
+		 */
+		onSelectRSVP: function(oEvent){
+			
+			var oSelectedIndex = oEvent.getParameter("selectedIndex");  
+    		var oRadioButtonSrc = oEvent.getSource().getAggregation("buttons");  
+    		//Get the Selected value
+    		var oSelectedValue = oRadioButtonSrc[oSelectedIndex].getText().substring(0,1); 
+    		//Get the Path
+    		var sPath =  oEvent.getSource().getBindingContext().getPath();
+			//Set the Selected value of the Radio Button
+    		this.getModel().setProperty(sPath + "/RSVP",oSelectedValue);
+		},
 		
 		/**
 		 * Event handler for Select Radio Button for Pre Evening Event
