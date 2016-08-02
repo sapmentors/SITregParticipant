@@ -69,7 +69,7 @@
 					<ColumnListItem>
 						<cells>
 							<ObjectIdentifier text="{ID}" />
-							<Link href="{BioURL}" enabled="{= ${BioURL} === null ? false : true }" target="_blank" text="{FirstName} {LastName}" />
+							<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}" />
 							<ObjectNumber unit="{Twitter}"/>
 							<Text text="{RSVP}"/>
 							<Text text="{ path: 'PreEveningEvent',  formatter : '.formatter.eventValue' }"/>
