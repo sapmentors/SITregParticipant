@@ -219,6 +219,27 @@ sap.ui.define([
 		/* Internal functions
 		/* =========================================================== */
 		/**
+		 * Opens a dialog letting the user either confirm or cancel the quit and discard of changes.
+		 * @private
+		 */
+		_showConfirmQuitChanges: function() {
+			var oComponent = this.getOwnerComponent(),
+				oModel = this.getModel();
+			var that = this;
+			MessageBox.confirm(
+				this._oResourceBundle.getText("confirmCancelMessage"), {
+					styleClass: oComponent.getContentDensityClass(),
+					onClose: function(oAction) {
+						if (oAction === sap.m.MessageBox.Action.OK) {
+							that.getModel("appView").setProperty("/addEnabled", true);
+							oModel.resetChanges();
+							that._navBack();
+						}
+					}
+				}
+			);
+		},
+		/**
 		 * Navigates back in the browser history, if the entry was created by this app.
 		 * If not, it navigates to the Details page
 		 * @private
