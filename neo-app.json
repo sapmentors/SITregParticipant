@@ -74,7 +74,7 @@
     },
     {
       "directive": "public",
-      "maxAge": 31536000
+      "maxAge": 86400
     }
   ]
 }
