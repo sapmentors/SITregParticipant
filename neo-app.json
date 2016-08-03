@@ -63,7 +63,7 @@
   ],
   "cacheControl": [
     {
-      "directive": "private",
+      "directive": "none",
       "maxAge": 0,
       "path": "**.html"
     },
