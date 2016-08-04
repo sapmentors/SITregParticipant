@@ -21,8 +21,11 @@ sap.ui.define([
 				this._sErrorText = this._oResourceBundle.getText("errorText");
 
 				this._oModel.attachMetadataFailed(function (oEvent) {
+					// Do we have to login?
+					if (oEvent.mParameters.response.headers["com.sap.cloud.security.login"] === "login-request") {
+						window.location.reload();
+					}
 					var oParams = oEvent.getParameters();
-
 					this._showMetadataError(oParams.response);
 				}, this);
 
