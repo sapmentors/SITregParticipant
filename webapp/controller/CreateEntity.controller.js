@@ -67,7 +67,7 @@ sap.ui.define([
     		oModel.setProperty(sPath + "/Twitter"       ,this.getView().byId("idTwitter").getValue());
     		oModel.setProperty(sPath + "/EMail"         ,this.getView().byId("idEMail").getValue());
     		oModel.setProperty(sPath + "/MobilePhone"   ,this.getView().byId("idMobilePhone").getValue());
-    		oModel.setProperty(sPath + "/RelationToSAP" ,this.getView().byId("idRelationToSAP").getValue());
+    		oModel.setProperty(sPath + "/RelationToSAP" ,this.getView().byId("idRelationToSAP").getSelectedKey());
     		oModel.setProperty(sPath + "/ReceiptCompany",this.getView().byId("idReceiptCompany").getValue());
     		oModel.setProperty(sPath + "/ReceiptAddress",this.getView().byId("idReceiptAddress").getValue());
 
