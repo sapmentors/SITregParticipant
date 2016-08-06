@@ -131,6 +131,14 @@
 			</semantic:GroupSelect>
 		</semantic:group>
 
+		<semantic:customHeaderContent>
+			<Button 
+				id="about"
+				icon="sap-icon://message-information" 
+				tooltip="About"
+				press="onAbout"/>
+		</semantic:customHeaderContent>
+
 	</semantic:MasterPage>
 
 </mvc:View>

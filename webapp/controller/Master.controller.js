@@ -226,6 +226,22 @@ sap.ui.define([
 					upperCase : false
 				});
 			},
+			
+			onAbout: function(oEvent) {
+				var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
+				jQuery.sap.require("sap.m.MessageBox");
+				if (!this._oLayout ) {
+					this._oLayout  = sap.ui.xmlfragment("com.sap.sapmentors.sitreg.registration.view.About", this);
+					this.getView().addDependent(this._oLayout);
+				}
+				sap.m.MessageBox.information(
+					this._oLayout,
+					{
+						title: "About the SAP Inside Track Registration App",
+						styleClass: bCompact? "sapUiSizeCompact" : ""
+					}
+				);
+			},
 
 			/* =========================================================== */
 			/* begin: internal methods                                     */

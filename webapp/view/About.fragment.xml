@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<core:HTML content="&lt;div class=&quot;content&quot;&gt;
+	&lt;p&gt;The SAP Inside Track Registration App is an Open Source project brought to you by the
+	&lt;a href=&quot;http://sapmentors.sap.com&quot; target=&quot;_blank&quot;&gt;SAP Mentors&lt;/a&gt; and 
+	&lt;a href=&quot;https://github.com/sapmentors/SITreg/graphs/contributors&quot; target=&quot;_blank&quot;&gt;contributors&lt;/a&gt;. 
+	The project for the native SAP HANA XS backend and the SAPUI5 frontend applications is 
+	hosted on &lt;a href=&quot;https://github.com/sapmentors/SITreg&quot; target=&quot;_blank&quot;&gt;GitHub&lt;/a&gt;. 
+	We're looking forward for additional contributions.&lt;/p&gt;
+	&lt;p&gt;If you're hosting you can use this app too! Just request the organizer role directly here in the app via the info menu
+	(when &lt;a href=&quot;https://github.com/sapmentors/SITregParticipant/issues/4&quot; target=&quot;_blank&quot;&gt;Issue #4&lt;/a&gt;
+	is fixed). Until then reach out to &lt;a href=&quot;mailto:gregor.wolf@gmail.com&quot; target=&quot;_blank&quot;&gt;Gregor Wolf&lt;/a&gt;.
+	&lt;/p&gt;
+	&lt;/div&gt;">
+	</core:HTML>
+</core:FragmentDefinition>
