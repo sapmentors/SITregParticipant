@@ -1,45 +1,27 @@
-<mvc:View 
-	xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:semantic="sap.m.semantic"
-	xmlns:f="sap.ui.layout.form"
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form"
 	controllerName="com.sap.sapmentors.sitreg.registration.controller.Detail">
-
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
-
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{Location}" 
-				number="{         path: 'EventDate',         type: 'sap.ui.model.type.Date',         formatOptions: {          style: 'medium'         }        }">
-			</ObjectHeader>
+			<ObjectHeader id="objectHeader" title="{Location}"
+				number="{ path: 'EventDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }"></ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
 						<f:SimpleForm editable="false" layout="ResponsiveGridLayout">
 							<Label text="{i18n>detailIconTabBarInfoStartTime}"/>
-							<Text text="{ 
-								path: 'StartTime',
-								type : 'sap.ui.model.type.Time'
-							}" />
+							<Text text="{ path: 'StartTime', type : 'sap.ui.model.type.Time', formatOptions: { pattern: 'HH:mm'} }"/>
 							<Label text="{i18n>detailIconTabBarInfoEndTime}"/>
-							<Text text="{ 
-								path: 'EndTime',
-								type : 'sap.ui.model.type.Time'
-							}"/>
+							<Text text="{ path: 'EndTime', type : 'sap.ui.model.type.Time', formatOptions: { pattern: 'HH:mm'} }"/>
 							<Label text="Your RSVP"/>
 							<Text text="{Participant/RSVP}"/>
 						</f:SimpleForm>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}">
-					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" width="auto" 
-				items="{Participants}" 
-				updateFinished="onListUpdateFinished" 
-				noDataText="{i18n>detailLineItemTableNoDataText}" 
-				busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
-				class="sapUiResponsiveMargin"
-				 >
+			<Table id="lineItemsList" width="auto" items="{Participants}" updateFinished="onListUpdateFinished"
+				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -68,33 +50,25 @@
 				<items>
 					<ColumnListItem>
 						<cells>
-							<ObjectIdentifier text="{ID}" />
-							<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}" />
+							<ObjectIdentifier text="{ID}"/>
+							<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}"/>
 							<ObjectNumber unit="{Twitter}"/>
 							<Text text="{RSVP}"/>
-							<Text text="{ path: 'PreEveningEvent',  formatter : '.formatter.eventValue' }"/>
-							<Text text="{ path: 'PostEveningEvent',  formatter : '.formatter.eventValue' }"/>
+							<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }"/>
+							<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }"/>
 						</cells>
 					</ColumnListItem>
 				</items>
 			</Table>
 		</semantic:content>
 		<semantic:positiveAction>
-			<semantic:PositiveAction 
-				text="{i18n>detailRegister}" 
-				press="onRegister" 
-				visible="{= ${Participant} === null ? true : false}"/>
+			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant} === null ? true : false}"/>
 		</semantic:positiveAction>
 		<semantic:editAction>
-			<semantic:EditAction 
-				id="edit" 
-				press="onEdit"
-				visible="{= ${Participant} === null ? false :  true }"/>
-		</semantic:editAction>		
+			<semantic:EditAction id="edit" press="onEdit" visible="{= ${Participant} === null ? false : true }"/>
+		</semantic:editAction>
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
-
 	</semantic:DetailPage>
-
 </mvc:View>
