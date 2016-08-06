@@ -227,15 +227,6 @@ sap.ui.define([
 				});
 			},
 
-			/**
-			 * Event handler for navigating back.
-			 * We navigate back in the browser historz
-			 * @public
-			 */
-			onNavBack : function() {
-				history.go(-1);
-			},
-
 			/* =========================================================== */
 			/* begin: internal methods                                     */
 			/* =========================================================== */
@@ -248,7 +239,7 @@ sap.ui.define([
 					delay: 0,
 					title: this.getResourceBundle().getText("masterTitleCount", [0]),
 					noDataText: this.getResourceBundle().getText("masterListNoDataText"),
-					sortBy: "Location",
+					sortBy: "EventDate",
 					groupBy: "None"
 				});
 			},

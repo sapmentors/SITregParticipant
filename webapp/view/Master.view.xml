@@ -7,9 +7,7 @@
 
 	<semantic:MasterPage
 			id="page"
-			title="{masterView>/title}"
-			navButtonPress="onNavBack"
-			showNavButton="true">
+			title="{masterView>/title}">
 		<semantic:subHeader>
 			<Bar id="headerBar">
 				<contentMiddle>
@@ -96,6 +94,10 @@
 					id="sort"
 					selectedKey="{masterView>/sortBy}"
 					change="onSort">
+				<core:Item
+						id="masterSort0"
+						key="EventDate"
+						text="{i18n>masterSort0}"/>
 				<core:Item
 						id="masterSort1"
 						key="Location"
