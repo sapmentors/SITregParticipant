@@ -17,7 +17,6 @@
 							<Text text="{Participant/RSVP}"/>
 						</f:SimpleForm>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://attachment" tooltip="{i18n>detailIconTabBarAttachments}"></IconTabFilter>
 				</items>
 			</IconTabBar>
 			<Table id="lineItemsList" width="auto" items="{Participants}" updateFinished="onListUpdateFinished"
