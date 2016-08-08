@@ -51,7 +51,7 @@
 						<cells>
 							<ObjectIdentifier text="{ID}"/>
 							<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}"/>
-							<ObjectNumber unit="{Twitter}"/>
+							<Link href="https://twitter.com/{Twitter}" enabled="{= ${Twitter} ? true : false }" target="_blank" text="{Twitter}"/>
 							<Text text="{RSVP}"/>
 							<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }"/>
 							<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }"/>
