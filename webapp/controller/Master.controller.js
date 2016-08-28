@@ -235,7 +235,7 @@ sap.ui.define([
 				sap.m.MessageBox.information(
 					this._oLayout,
 					{
-						title: "About the SAP Inside Track Registration App",
+						title: this.getResourceBundle().getText("aboutDialogTitle"),
 						styleClass: bCompact? "sapUiSizeCompact" : ""
 					}
 				);
