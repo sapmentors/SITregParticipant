@@ -15,7 +15,7 @@
 			maxContainerCols="2"
 			editable="true"
 			layout="ResponsiveGridLayout"
-			title="Participant Registration"
+			title="{i18n>participantRegistration}"
 			labelSpanL="4"
 			labelSpanM="4"
 			emptySpanL="0"
@@ -24,7 +24,7 @@
 			columnsM="2"
 			class="editableForm">
 			<f:content>
-				<core:Title text="Visible for Everybody" />
+				<core:Title text="{i18n>visibleForEverybody}" />
 				<Label text="{i18n>FirstNameLabel}" />
 				<Input id="idFirstName" value="{FirstName}" />
 				<Label text="{i18n>LastNameLabel}" />
@@ -63,7 +63,7 @@
 					</RadioButtonGroup>		
 				</HBox>
 				
-				<core:Title text="Visible Only for Organizers" />
+				<core:Title text="{i18n>visibleOnlyForOrganizers}" />
 
 				<Label text="{i18n>EmailLabel}" />
 				<Input id="idEMail" value="{EMail}" />
