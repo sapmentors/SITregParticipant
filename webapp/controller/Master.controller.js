@@ -232,7 +232,15 @@ sap.ui.define([
 		 * 
 		 */
 		onAboutRegisterAsOrganizer: function() {
-			console.log("RegisterAsOrganizer");
+			console.log(this);
+		
+			//var sObjectPath = this.getElementBinding().getPath() + "/RegisterAsOrganizer";
+			/*this.getRouter().getTargets().display("registerAsOrganizer", {
+				mode: "create",
+				objectId: this.getView().getBindingContext().getProperty("ID"),
+				objectPath: sObjectPath
+			});
+*/			
 		},
 		
 	

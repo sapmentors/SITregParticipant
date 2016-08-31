@@ -41,10 +41,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_bluecrystal"
-		]
+		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
 	},
 	"sap.ui5": {
 		"_version": "1.2.0",
@@ -96,38 +93,28 @@
 				"controlId": "idAppControl",
 				"controlAggregation": "detailPages",
 				"bypassed": {
-					"target": [
-						"master",
-						"notFound"
-					]
+					"target": ["master", "notFound"]
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "Events/{objectId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				},
-				{
-					"pattern": "Events/{objectId}/RegisterParticipiant",
-					"name": "register",
-					"target": [
-						"register"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": ["object", "master"]
+			}, {
+				"pattern": "Events/{objectId}",
+				"name": "object",
+				"target": ["master", "object"]
+			}, {
+				"pattern": "Events/{objectId}/RegisterParticipiant",
+				"name": "register",
+				"target": ["register"]
+			}, {
+				"name": "registerAsOrganizer",
+				"pattern": "RegisterAsOrganizer",
+				"greedy": false,
+				"target": ["registerAsOrganizer"]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",
@@ -156,6 +143,14 @@
 				"notFound": {
 					"viewName": "NotFound",
 					"viewId": "notFound"
+				},
+				"registerAsOrganizer": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "RegisterAsOrganizer",
+					"viewId": "registerasorganizer",
+					"viewLevel": 3
 				}
 			}
 		}
