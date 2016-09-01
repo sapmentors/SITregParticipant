@@ -82,7 +82,12 @@
 									],
 									formatter : '.formatter.registrationNumbers'
 								}" />
-							<ObjectAttribute text="Your RSVP: {Participant/RSVP}" />
+							<ObjectAttribute text="{
+									parts: [
+										{path: 'Participant/RSVP'}
+									],
+									formatter : '.formatter.RSVPstatus'
+								}" />
 						</attributes>
 					</ObjectListItem>
 				</items>

@@ -82,6 +82,14 @@ sap.ui.define([
 			    	var oResourceBundle = this.getModel("i18n").getResourceBundle();
 			    	return oResourceBundle.getText("masterRegistrationNumbers", [iFree, iParticipants, iMaxParticipants]);
 				}
+			},
+			RSVPstatus : function (sRSVP) {
+				var oResourceBundle = this.getModel("i18n").getResourceBundle();
+				if(sRSVP === "Y") {
+					return oResourceBundle.getText("masterRSVPstatusY");
+				} else {
+					return oResourceBundle.getText("masterRSVPstatusN");
+				}
 			}
 		};
 
