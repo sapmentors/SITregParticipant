@@ -14,7 +14,12 @@
 							<Label text="{i18n>detailIconTabBarInfoEndTime}"/>
 							<Text text="{ path: 'EndTime', type : 'sap.ui.model.type.Time', formatOptions: { pattern: 'HH:mm'} }"/>
 							<Label text="{i18n>yourRSVP}"/>
-							<Text text="{Participant/RSVP}"/>
+							<Text text="{
+									parts: [
+										{path: 'Participant/RSVP'}
+									],
+									formatter : '.formatter.RSVPstatus'
+								}"/>
 						</f:SimpleForm>
 					</IconTabFilter>
 				</items>

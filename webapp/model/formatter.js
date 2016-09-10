@@ -15,19 +15,22 @@ sap.ui.define([
 			 * @returns {string} true or false
 			 */
 			eventValue : function (sValue) {
-				
-				var sResult = new sap.ui.model.type.String();
+				var oResourceBundle = this.getModel("i18n").getResourceBundle();
+				var sResult = "";
 				
 				if (sValue === "Y") {
-					sResult = "Yes";
+					sResult = "yes";
 				}
 				else if(sValue === "N"){
-					sResult = "No";
+					sResult = "no";
 				}
 				else if(sValue === "M" || sValue === null){
-					sResult = "Maybe";
+					sResult = "maybe";
 				}
-				return sResult;				
+				else if(sValue === "W"){
+					sResult = "waitinglist";
+				}
+				return oResourceBundle.getText(sResult);
 
 			},
 
@@ -87,6 +90,8 @@ sap.ui.define([
 				var oResourceBundle = this.getModel("i18n").getResourceBundle();
 				if(sRSVP === "Y") {
 					return oResourceBundle.getText("masterRSVPstatusY");
+				} else if(sRSVP === "W") {
+					return oResourceBundle.getText("masterRSVPstatusWaitinglist");
 				} else {
 					return oResourceBundle.getText("masterRSVPstatusN");
 				}
