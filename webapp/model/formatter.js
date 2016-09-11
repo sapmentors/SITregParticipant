@@ -10,6 +10,7 @@ sap.ui.define([
 			 * Y --> Yes
 			 * N --> No
 			 * M --> Maybe
+			 * W --> Waiting liest
 			 * @public
 			 * @param {string} sValue value to be formatted
 			 * @returns {string} true or false
