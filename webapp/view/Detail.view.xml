@@ -25,7 +25,7 @@
 				</items>
 			</IconTabBar>
 			<Table id="lineItemsList" width="auto" items="{Participants}" updateFinished="onListUpdateFinished"
-				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingThreshold="100" class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
