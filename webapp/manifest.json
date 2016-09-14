@@ -50,6 +50,9 @@
 			"type": "XML",
 			"id": "app"
 		},
+		"resourceRoots": {
+            "com.penninkhof.controls": "./control"
+        },
 		"dependencies": {
 			"minUI5Version": "1.36.0",
 			"libs": {
@@ -110,6 +113,10 @@
 				"name": "register",
 				"target": ["register"]
 			}, {
+				"pattern": "Events/{objectId}/Ticket",
+				"name": "ticket",
+				"target": ["ticket"]
+			}, {
 				"name": "registerAsOrganizer",
 				"pattern": "RegisterAsOrganizer",
 				"greedy": false,
@@ -130,6 +137,11 @@
 				"register": {
 					"viewName": "CreateEntity",
 					"viewId": "createentity",
+					"viewLevel": 3
+				},
+				"ticket": {
+					"viewName": "Ticket",
+					"viewId": "ticket",
 					"viewLevel": 3
 				},
 				"detailObjectNotFound": {

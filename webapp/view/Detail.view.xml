@@ -24,8 +24,14 @@
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" width="auto" items="{Participants}" updateFinished="onListUpdateFinished"
-				noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingThreshold="100" class="sapUiResponsiveMargin">
+			<Table id="lineItemsList" 
+				width="auto" 
+				items="{Participants}" 
+				updateFinished="onListUpdateFinished"
+				noDataText="{i18n>detailLineItemTableNoDataText}" 
+				busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
+				growing="true" growingThreshold="100" 
+				class="sapUiResponsiveMargin">
 				<headerToolbar>
 					<Toolbar id="lineItemsToolbar">
 						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
@@ -65,6 +71,15 @@
 				</items>
 			</Table>
 		</semantic:content>
+		<semantic:customFooterContent>
+			<Button 
+				id="ticketLink"
+				visible="{= ${Participant} === null ? false : true }"
+				icon="sap-icon://bar-code" 
+				tooltip="{i18n>detailTicketButton}"
+				text="{i18n>detailTicketButton}"
+				press="onTicket"/>
+		</semantic:customFooterContent>
 		<semantic:positiveAction>
 			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant} === null ? true : false}"/>
 		</semantic:positiveAction>

@@ -7,5 +7,7 @@
 		busyIndicatorDelay="{appView>/delay}"
 		xmlns="sap.m">
 	<SplitApp id="idAppControl" />
+	<!--
 	<core:Fragment fragmentName="com.sap.sapmentors.sitreg.registration.view.GitHubRibbon" type="XML" />
+	-->
 </mvc:View>
