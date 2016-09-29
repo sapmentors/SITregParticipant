@@ -1,4 +1,8 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form"
+<mvc:View xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:semantic="sap.m.semantic" 
+	xmlns:f="sap.ui.layout.form"
+	xmlns:p="com.penninkhof.controls"
 	controllerName="com.sap.sapmentors.sitreg.registration.controller.Detail">
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
@@ -21,65 +25,67 @@
 									formatter : '.formatter.RSVPstatus'
 								}"/>
 						</f:SimpleForm>
+						<Table id="lineItemsList" 
+							width="auto" 
+							items="{Participants}" 
+							updateFinished="onListUpdateFinished"
+							noDataText="{i18n>detailLineItemTableNoDataText}" 
+							busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
+							growing="true" growingThreshold="100" 
+							class="sapUiResponsiveMargin">
+							<headerToolbar>
+								<Toolbar id="lineItemsToolbar">
+									<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column id="ParticipantID">
+									<Text text="ID"/>
+								</Column>
+								<Column id="ParticipantName">
+									<Text text="{i18n>detailLineItemTableParticipantName}"/>
+								</Column>
+								<Column id="Twitter" minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+									<Text text="{i18n>detailLineItemTableTwitter}"/>
+								</Column>
+								<Column id="RSVP" minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>detailLineItemTableRSVP}"/>
+								</Column>
+								<Column id="PreEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>detailLineItemTablePreEveningEvent}"/>
+								</Column>
+								<Column id="PostEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+									<Text text="{i18n>detailLineItemTablePostEveningEvent}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier text="{ID}"/>
+										<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}"/>
+										<Link href="https://twitter.com/{Twitter}" enabled="{= ${Twitter} ? true : false }" target="_blank" text="{Twitter}"/>
+										<Text text="{ path: 'RSVP', formatter : '.formatter.eventValue' }"/>
+										<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }"/>
+										<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+					<IconTabFilter 
+						id="iconTabBarFilter2" 
+						icon="sap-icon://bar-code" 
+						tooltip="{i18n>detailIconTabBarTicket}"
+						enabled="{= ${Participant} === null ? false : true }">
+						<p:QRCode code="{Ticket/SHA256HASH}" />
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
-			<Table id="lineItemsList" 
-				width="auto" 
-				items="{Participants}" 
-				updateFinished="onListUpdateFinished"
-				noDataText="{i18n>detailLineItemTableNoDataText}" 
-				busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
-				growing="true" growingThreshold="100" 
-				class="sapUiResponsiveMargin">
-				<headerToolbar>
-					<Toolbar id="lineItemsToolbar">
-						<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
-					</Toolbar>
-				</headerToolbar>
-				<columns>
-					<Column id="ParticipantID">
-						<Text text="ID"/>
-					</Column>
-					<Column id="ParticipantName">
-						<Text text="{i18n>detailLineItemTableParticipantName}"/>
-					</Column>
-					<Column id="Twitter" minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-						<Text text="{i18n>detailLineItemTableTwitter}"/>
-					</Column>
-					<Column id="RSVP" minScreenWidth="Tablet" demandPopin="true">
-						<Text text="{i18n>detailLineItemTableRSVP}"/>
-					</Column>
-					<Column id="PreEveningEvent" minScreenWidth="Tablet" demandPopin="true">
-						<Text text="{i18n>detailLineItemTablePreEveningEvent}"/>
-					</Column>
-					<Column id="PostEveningEvent" minScreenWidth="Tablet" demandPopin="true">
-						<Text text="{i18n>detailLineItemTablePostEveningEvent}"/>
-					</Column>
-				</columns>
-				<items>
-					<ColumnListItem>
-						<cells>
-							<ObjectIdentifier text="{ID}"/>
-							<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}"/>
-							<Link href="https://twitter.com/{Twitter}" enabled="{= ${Twitter} ? true : false }" target="_blank" text="{Twitter}"/>
-							<Text text="{ path: 'RSVP', formatter : '.formatter.eventValue' }"/>
-							<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }"/>
-							<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }"/>
-						</cells>
-					</ColumnListItem>
-				</items>
-			</Table>
 		</semantic:content>
+
 		<semantic:customFooterContent>
-			<Button 
-				id="ticketLink"
-				visible="{= ${Participant} === null ? false : true }"
-				icon="sap-icon://bar-code" 
-				tooltip="{i18n>detailTicketButton}"
-				text="{i18n>detailTicketButton}"
-				press="onTicket"/>
 		</semantic:customFooterContent>
+
 		<semantic:positiveAction>
 			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant} === null ? true : false}"/>
 		</semantic:positiveAction>

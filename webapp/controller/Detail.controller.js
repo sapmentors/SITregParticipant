@@ -125,11 +125,6 @@ sap.ui.define([
 				}
 			},
 
-			onTicket: function(oEvent) {
-				this.getRouter().navTo("ticket", {
-					objectId: this.getView().getBindingContext().getProperty("ID")
-				});
-			},
 			/* =========================================================== */
 			/* begin: internal methods                                     */
 			/* =========================================================== */

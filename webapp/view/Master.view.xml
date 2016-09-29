@@ -37,7 +37,7 @@
 							descending: false
 						},
 						parameters:{
-							expand:'RegistrationNumbers,Participant'
+							expand:'RegistrationNumbers,Participant,Ticket'
 						},
 						groupHeaderFactory: '.createGroupHeader'
 					}"
