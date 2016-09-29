@@ -76,7 +76,7 @@
 						id="iconTabBarFilter2" 
 						icon="sap-icon://bar-code" 
 						tooltip="{i18n>detailIconTabBarTicket}"
-						enabled="{= ${Participant} === null ? false : true }">
+						enabled="{= ${Ticket} === null ? false : true }">
 						<p:QRCode code="{Ticket/SHA256HASH}" />
 					</IconTabFilter>
 				</items>
