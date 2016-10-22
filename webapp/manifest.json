@@ -41,7 +41,11 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": ["sap_hcb", "sap_bluecrystal"]
+		"supportedThemes": [
+			"sap_belize",
+			"sap_bluecrystal",
+			"sap_hcb"
+		]
 	},
 	"sap.ui5": {
 		"_version": "1.2.0",
@@ -51,8 +55,8 @@
 			"id": "app"
 		},
 		"resourceRoots": {
-            "com.penninkhof.controls": "./control"
-        },
+			"com.penninkhof.controls": "./control"
+		},
 		"dependencies": {
 			"minUI5Version": "1.36.0",
 			"libs": {
@@ -96,32 +100,53 @@
 				"controlId": "idAppControl",
 				"controlAggregation": "detailPages",
 				"bypassed": {
-					"target": ["master", "notFound"]
+					"target": [
+						"master",
+						"notFound"
+					]
 				},
 				"async": true
 			},
-			"routes": [{
-				"pattern": "",
-				"name": "master",
-				"target": ["object", "master"]
-			}, {
-				"pattern": "Events/{objectId}",
-				"name": "object",
-				"target": ["master", "object"]
-			}, {
-				"pattern": "Events/{objectId}/RegisterParticipiant",
-				"name": "register",
-				"target": ["register"]
-			}, {
-				"pattern": "Events/{objectId}/Ticket",
-				"name": "ticket",
-				"target": ["ticket"]
-			}, {
-				"name": "registerAsOrganizer",
-				"pattern": "RegisterAsOrganizer",
-				"greedy": false,
-				"target": ["registerAsOrganizer"]
-			}],
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": [
+						"object",
+						"master"
+					]
+				},
+				{
+					"pattern": "Events/{objectId}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				},
+				{
+					"pattern": "Events/{objectId}/RegisterParticipiant",
+					"name": "register",
+					"target": [
+						"register"
+					]
+				},
+				{
+					"pattern": "Events/{objectId}/Ticket",
+					"name": "ticket",
+					"target": [
+						"ticket"
+					]
+				},
+				{
+					"name": "registerAsOrganizer",
+					"pattern": "RegisterAsOrganizer",
+					"greedy": false,
+					"target": [
+						"registerAsOrganizer"
+					]
+				}
+			],
 			"targets": {
 				"master": {
 					"viewName": "Master",

@@ -77,7 +77,7 @@
 						icon="sap-icon://bar-code" 
 						tooltip="{i18n>detailIconTabBarTicket}"
 						enabled="{= ${Ticket} === null ? false : true }">
-						<p:QRCode class="sapUiLargeMargin"
+						<p:QRCode class="sapUiMediumMargin"
 							  code="{Ticket/SHA256HASH}" />
 					</IconTabFilter>
 				</items>

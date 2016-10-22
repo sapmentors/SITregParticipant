@@ -13,7 +13,7 @@
       "test.html"
     ],
     "buildRequired": true,
-    "lastBuildDateTime": "Mon, 01 Aug 2016 12:35:43 GMT"
+    "lastBuildDateTime": "Sat, 22 Oct 2016 16:58:34 GMT"
   },
   "dataBinding": {
     "/webapp/view/App.view.xml": {
@@ -71,7 +71,7 @@
   "hcpdeploy": {
     "account": "s0001142741trial",
     "name": "sitregparticipant",
-    "lastVersionWeTriedToDeploy": "0.0.4"
+    "lastVersionWeTriedToDeploy": "0.0.20"
   },
   "hybrid.facadeconfig": {
     "bFacade": false
