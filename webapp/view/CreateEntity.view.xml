@@ -85,9 +85,7 @@
 				<Label text="{i18n>ReceiptCompanyLabel}" />
 				<Input id="idReceiptCompany" value="{ReceiptCompany}" maxLength="256"/>
 				<Label text="{i18n>ReceiptAddressLabel}" />
-				<TextArea id="idReceiptAddress" growing="false" rows="5"  width="100%" value="{ReceiptAddress}" maxLength="512"/>
-
-				
+				<TextArea id="idReceiptAddress" rows="5"  width="100%" value="{ReceiptAddress}" maxLength="512"/>
 			</f:content>
 		</f:SimpleForm>
 
