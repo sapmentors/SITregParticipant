@@ -59,7 +59,7 @@
   "basevalidator": {
     "services": {
       "xml": "fioriXmlAnalysis",
-      "js": "fioriJsValidator"
+      "js": "jsValidator"
     }
   },
   "codeCheckingTriggers": {
