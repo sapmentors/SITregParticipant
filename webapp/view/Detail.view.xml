@@ -7,8 +7,15 @@
 	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
-			<ObjectHeader id="objectHeader" title="{Location}"
-				number="{ path: 'EventDate', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' } }"></ObjectHeader>
+			<ObjectHeader id="objectHeader" title="{Description}"
+				number="{ 
+					path: 'EventDate', 
+					type: 'sap.ui.model.type.Date', 
+					formatOptions: { style: 'medium' } 
+				}">
+				<ObjectAttribute
+					text="{Location}" />
+			</ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
 					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
