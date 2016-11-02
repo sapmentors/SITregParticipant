@@ -55,5 +55,19 @@ sap.ui.define([
 		assert.strictEqual(oGrouperReturn.key, "GT20", "The key is as expected for a high value");
 		assert.strictEqual(oGrouperReturn.text, this._oResourceModel.getResourceBundle().getText("masterGroup1Header2"), "The group header is as expected for a high value");
 	});
+	
+	QUnit.test("Should group the event date", function (assert) {
+		// Arrange
+		var oContextObject = createContextObject(Date()),
+			oGrouperReturn;
+
+		// System under test
+		var fnGroup = Grouper.groupEventDate(this._oResourceModel.getResourceBundle());
+
+		// Assert
+		oGrouperReturn = fnGroup(oContextObject);
+		assert.strictEqual(oGrouperReturn.key, "LENOW", "The key is as expected for a lower or equal date");
+		assert.strictEqual(oGrouperReturn.text, this._oResourceModel.getResourceBundle().getText("masterGroup2Header1"), "The group header is as expected for a lower or equal date");
+	});	
 
 });

@@ -12,17 +12,17 @@ sap.ui.define([
 
 		return {
 
-		/**
-		 * Groups the items by a price in two groups: Lesser equal than 20 and greater than 20
-		 * This grouping function needs the resource bundle so we pass it as a dependency
-		 * @param oResourceBundle {sap.ui.model.resource.ResourceModel} the resource bundle of your i18n model
-		 * @returns {Function} the grouper function you can pass to your sorter
-		 */
-		groupUnitNumber : function (oResourceBundle) {
-			return function (oContext) {
-				var iPrice = oContext.getProperty("MaxParticipants"),
-					sKey,
-					sText;
+			/**
+			 * Groups the items by a price in two groups: Lesser equal than 20 and greater than 20
+			 * This grouping function needs the resource bundle so we pass it as a dependency
+			 * @param oResourceBundle {sap.ui.model.resource.ResourceModel} the resource bundle of your i18n model
+			 * @returns {Function} the grouper function you can pass to your sorter
+			 */
+			groupUnitNumber : function (oResourceBundle) {
+				return function (oContext) {
+					var iPrice = oContext.getProperty("MaxParticipants"),
+						sKey,
+						sText;
 
 					if (iPrice <= 20) {
 						sKey = "LE20";
@@ -30,6 +30,28 @@ sap.ui.define([
 					} else {
 						sKey = "GT20";
 						sText = oResourceBundle.getText("masterGroup1Header2");
+					}
+
+					return {
+						key: sKey,
+						text: sText
+					};
+				};
+			},
+			
+			groupEventDate : function (oResourceBundle) {
+				return function (oContext) {
+					var dEventDate = new Date(oContext.getProperty("EventDate")),
+						dNow = new Date(),
+						sKey,
+						sText;
+
+					if (dEventDate <= dNow) {
+						sKey = "LENOW";
+						sText = oResourceBundle.getText("masterGroup2Header1");
+					} else {
+						sKey = "GTNOW";
+						sText = oResourceBundle.getText("masterGroup2Header2");
 					}
 
 					return {

@@ -33,7 +33,15 @@ sap.ui.define([
 				// taken care of by the master list itself.
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
-			this._oGroupSortState = new GroupSortState(oViewModel, grouper.groupUnitNumber(this.getResourceBundle()));
+			this._oGroupSortState = new GroupSortState(
+										oViewModel, 
+										grouper.groupUnitNumber(this.getResourceBundle())
+									);
+
+			this._oGroupSortStateEventDate = new GroupSortState(
+										oViewModel, 
+										grouper.groupEventDate(this.getResourceBundle())
+									);
 
 			this._oList = oList;
 			// keeps the filter and search state
@@ -123,8 +131,8 @@ sap.ui.define([
 		 * @public
 		 */
 		onSort: function(oEvent) {
-			var sKey = oEvent.getSource().getSelectedItem().getKey(),
-				aSorters = this._oGroupSortState.sort(sKey);
+			var sKey = oEvent.getSource().getSelectedItem().getKey();
+			var aSorters = this._getSorterByKey(sKey);
 
 			this._applyGroupSort(aSorters);
 		},
@@ -135,12 +143,12 @@ sap.ui.define([
 		 * @public
 		 */
 		onGroup: function(oEvent) {
-			var sKey = oEvent.getSource().getSelectedItem().getKey(),
-				aSorters = this._oGroupSortState.group(sKey);
+			var sKey = oEvent.getSource().getSelectedItem().getKey();
+			var aSorters = this._getSorterByKey(sKey);
 
 			this._applyGroupSort(aSorters);
 		},
-
+		
 		/**
 		 * Event handler for the filter button to open the ViewSettingsDialog.
 		 * which is used to add or remove filters to the master list. This
@@ -295,6 +303,16 @@ sap.ui.define([
 				sortBy: "EventDate",
 				groupBy: "None"
 			});
+		},
+
+		_getSorterByKey: function(sKey) {
+			var aSorter = [];
+			if(sKey === "MaxParticipants") {
+				aSorter = this._oGroupSortState.group(sKey);
+			} else if (sKey === "EventDate") {
+				aSorter = this._oGroupSortStateEventDate.group(sKey);
+			}
+			return aSorter;
 		},
 
 		/**

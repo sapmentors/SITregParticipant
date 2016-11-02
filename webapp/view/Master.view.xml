@@ -133,6 +133,10 @@
 						id="masterGroup1"
 						key="MaxParticipants"
 						text="{i18n>masterGroup1}"/>
+				<core:Item
+						id="masterGroup2"
+						key="EventDate"
+						text="{i18n>masterGroup2}"/>
 			</semantic:GroupSelect>
 		</semantic:group>
 

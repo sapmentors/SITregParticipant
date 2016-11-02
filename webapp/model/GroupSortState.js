@@ -57,6 +57,14 @@ sap.ui.define([
 					new Sorter("MaxParticipants", false,
 						this._fnGroupFunction.bind(this))
 				);
+			} else if (sKey === "EventDate") {
+				// Grouping means sorting so we set the select to the same Entity used for grouping
+				this._oViewModel.setProperty("/sortBy", "EventDate");
+
+				aSorters.push(
+					new Sorter("EventDate", false,
+						this._fnGroupFunction.bind(this))
+				);
 			} else if (sKey === "None") {
 				// select the default sorting again
 				this._oViewModel.setProperty("/sortBy", "Location");
