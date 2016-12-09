@@ -59,7 +59,9 @@ sap.ui.define([
 			var that = this,
 				oModel = this.getModel();
     		//Get the Path
-    		var sPath =  oEvent.getSource().getBindingContext().getPath();
+    		var sPath =  "/Participant";
+    		// Causes Bug Registration not possible with newest SAPUI5 #21
+    		// var sPath =  oEvent.getSource().getBindingContext().getPath();
     		// TODO added by Gregor, 2016-08-02: There should be a better way than reading all values and adding to the model
     		oModel.setProperty(sPath + "/FirstName"     ,this.getView().byId("idFirstName").getValue());
     		oModel.setProperty(sPath + "/LastName"      ,this.getView().byId("idLastName").getValue());
