@@ -37,7 +37,7 @@
 							descending: false
 						},
 						parameters:{
-							expand:'RegistrationNumbers,Participant,Ticket'
+							expand:'RegistrationNumbers,Participant,Ticket,EventType'
 						},
 						groupHeaderFactory: '.createGroupHeader'
 					}"
@@ -72,6 +72,7 @@
 								}
 							}">
 						<attributes>
+							<ObjectAttribute text="{EventType/Description}" />
 							<ObjectAttribute 
 								id="registrationNumbers" 
 								text="{
@@ -137,6 +138,10 @@
 						id="masterGroup2"
 						key="EventDate"
 						text="{i18n>masterGroup2}"/>
+				<core:Item
+						id="masterGroup3"
+						key="EventType"
+						text="{i18n>masterGroup3}"/>
 			</semantic:GroupSelect>
 		</semantic:group>
 

@@ -59,6 +59,17 @@ sap.ui.define([
 						text: sText
 					};
 				};
+			},
+			
+			groupEventType : function (oResourceBundle) {
+				return function (oContext) {
+					var sType = oContext.getProperty("Type");
+					var sEventType = oContext.getProperty("EventType/Description");
+					return {
+						key: sType,
+						text: sEventType
+					};
+				};
 			}
 
 		};

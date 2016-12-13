@@ -43,6 +43,11 @@ sap.ui.define([
 										grouper.groupEventDate(this.getResourceBundle())
 									);
 
+			this._oGroupSortStateEventType = new GroupSortState(
+										oViewModel, 
+										grouper.groupEventType(this.getResourceBundle())
+									);
+
 			this._oList = oList;
 			// keeps the filter and search state
 			this._oListFilterState = {
@@ -177,21 +182,26 @@ sap.ui.define([
 		 */
 		onConfirmViewSettingsDialog: function(oEvent) {
 			var aFilterItems = oEvent.getParameters().filterItems,
+				oFilterCompoundKeys = oEvent.getParameters().filterCompoundKeys,
 				aFilters = [],
 				aCaptions = [];
 
 			// update filter state:
 			// combine the filter array and the filter string
 			aFilterItems.forEach(function(oItem) {
-				switch (oItem.getKey()) {
-					case "Filter1":
-						aFilters.push(new Filter("MaxParticipants", FilterOperator.LE, 100));
-						break;
-					case "Filter2":
-						aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 100));
-						break;
-					default:
-						break;
+				if ( oFilterCompoundKeys.MaxParticipants ) {
+					switch (oItem.getKey()) {
+						case "Filter1":
+							aFilters.push(new Filter("MaxParticipants", FilterOperator.LE, 100));
+							break;
+						case "Filter2":
+							aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 100));
+							break;
+						default:
+							break;
+					}
+				} else if ( oFilterCompoundKeys.Type ) {
+					aFilters.push(new Filter("Type", FilterOperator.EQ, oItem.getKey()));
 				}
 				aCaptions.push(oItem.getText());
 			});
@@ -311,6 +321,8 @@ sap.ui.define([
 				aSorter = this._oGroupSortState.group(sKey);
 			} else if (sKey === "EventDate") {
 				aSorter = this._oGroupSortStateEventDate.group(sKey);
+			} else if (sKey === "EventType") {
+				aSorter = this._oGroupSortStateEventType.group(sKey);
 			}
 			return aSorter;
 		},
