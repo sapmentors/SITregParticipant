@@ -18,7 +18,7 @@ sap.ui.define([
 			 * @param oResourceBundle {sap.ui.model.resource.ResourceModel} the resource bundle of your i18n model
 			 * @returns {Function} the grouper function you can pass to your sorter
 			 */
-			groupUnitNumber : function (oResourceBundle) {
+			groupMaxParticipants : function (oResourceBundle) {
 				return function (oContext) {
 					var iPrice = oContext.getProperty("MaxParticipants"),
 						sKey,
@@ -57,6 +57,16 @@ sap.ui.define([
 					return {
 						key: sKey,
 						text: sText
+					};
+				};
+			},
+			
+			groupLocation : function (oResourceBundle) {
+				return function (oContext) {
+					var sType = oContext.getProperty("Location");
+					return {
+						key: sType,
+						text: sType
 					};
 				};
 			},

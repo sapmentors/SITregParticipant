@@ -33,9 +33,14 @@ sap.ui.define([
 				// taken care of by the master list itself.
 				iOriginalBusyDelay = oList.getBusyIndicatorDelay();
 
-			this._oGroupSortState = new GroupSortState(
+			this._oGroupSortStateMaxParticipants = new GroupSortState(
 										oViewModel, 
-										grouper.groupUnitNumber(this.getResourceBundle())
+										grouper.groupMaxParticipants(this.getResourceBundle())
+									);
+
+			this._oGroupSortStateLocation = new GroupSortState(
+										oViewModel,
+										grouper.groupLocation(this.getResourceBundle())
 									);
 
 			this._oGroupSortStateEventDate = new GroupSortState(
@@ -318,7 +323,9 @@ sap.ui.define([
 		_getSorterByKey: function(sKey) {
 			var aSorter = [];
 			if(sKey === "MaxParticipants") {
-				aSorter = this._oGroupSortState.group(sKey);
+				aSorter = this._oGroupSortStateMaxParticipants.group(sKey);
+			} else if (sKey === "Location") {
+				aSorter = this._oGroupSortStateLocation.group(sKey);
 			} else if (sKey === "EventDate") {
 				aSorter = this._oGroupSortStateEventDate.group(sKey);
 			} else if (sKey === "EventType") {

@@ -73,9 +73,13 @@ sap.ui.define([
 					new Sorter("Type", false,
 						this._fnGroupFunction.bind(this))
 				);
-			} else if (sKey === "None") {
+			} else if (sKey === "Location") {
 				// select the default sorting again
 				this._oViewModel.setProperty("/sortBy", "Location");
+				aSorters.push(
+					new Sorter("Location", false,
+						this._fnGroupFunction.bind(this))
+				);
 			}
 
 			return aSorters;
