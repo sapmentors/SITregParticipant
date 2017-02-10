@@ -34,7 +34,17 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
-
+			/**
+			 * Event handler when the Export to Calendar button has been clicked
+			 */
+			onCalendarExport: function(){
+				var iId = this.getView().getBindingContext().getProperty("ID");
+				// get uri to service 
+				var sExportService = this.getOwnerComponent().getManifestEntry("sap.app").dataSources.mainService.uri;
+				sExportService = sExportService.replace("service.xsodata/", "ExportCalendar.xsjs?ID=" + iId);
+				window.open(sExportService, '_blank');
+			},
+			
 			/**
 			 * Event handler when the Register button has been clicked
 			 * @param {object} oEvent an event containing the total number of items in the list

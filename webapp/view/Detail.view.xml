@@ -92,6 +92,12 @@
 		</semantic:content>
 
 		<semantic:customFooterContent>
+			<Button 
+				id="ical"
+				tooltip="{i18n>exportCalendar}"
+				icon="sap-icon://appointment"
+				visible="{= ${Participant/RSVP} === 'Y' || ${Participant/RSVP} === 'W'}"
+				press="onCalendarExport" />
 		</semantic:customFooterContent>
 
 		<semantic:positiveAction>
