@@ -197,11 +197,10 @@ sap.ui.define([
 				if ( oFilterCompoundKeys.MaxParticipants ) {
 					switch (oItem.getKey()) {
 						case "Filter1":
-							aFilters.push(new Filter("MaxParticipants", FilterOperator.LE, 100));
+							aFilters.push(new Filter("MaxParticipants", FilterOperator.LE, 50));
 							break;
 						case "Filter2":
-							aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 100));
-							break;
+							aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 50));							break;
 						default:
 							break;
 					}
