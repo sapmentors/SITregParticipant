@@ -1,0 +1,51 @@
+<mvc:View 
+	controllerName="com.sap.sapmentors.sitreg.registration.controller.RegisterAsOrganizer" 
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
+	xmlns="sap.m">
+	<semantic:FullscreenPage
+		id="page"
+		title="{i18n>createViewTitle}"
+		showNavButton="true"
+		navButtonPress="onNavBack">
+		<semantic:content>
+
+		<f:SimpleForm id="SimpleFormParticipant"
+			minWidth="1024"
+			maxContainerCols="2"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="{i18n>participantRegistration}"
+			labelSpanL="4"
+			labelSpanM="4"
+			emptySpanL="0"
+			emptySpanM="0"
+			columnsL="2"
+			columnsM="2"
+			class="editableForm">
+			<f:content>
+				<core:Title text="{i18n>visibleForEverybody}" />
+				<Label text="{i18n>FirstNameLabel}" />
+				<Input id="idFirstName" value="{FirstName}" />
+				<Label text="{i18n>LastNameLabel}" />
+				<Input id="idLastName" value="{LastName}"/>
+				<Label text="{i18n>EmailLabel}" />
+				<Input id="idEMail" value="{EMail}" />
+				<Label text="{i18n>MobilePhoneLabel}" />
+				<Input id="idMobilePhone" value="{MobilePhone}" />
+			</f:content>
+		</f:SimpleForm>
+
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="save" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
+		</semantic:cancelAction>
+	</semantic:FullscreenPage>
+</mvc:View>

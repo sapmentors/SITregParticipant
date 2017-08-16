@@ -254,18 +254,14 @@ sap.ui.define([
 		 * 
 		 */
 		onAboutRegisterAsOrganizer: function() {
-			console.log(this);
-		
-			//var sObjectPath = this.getElementBinding().getPath() + "/RegisterAsOrganizer";
-			/*this.getRouter().getTargets().display("registerAsOrganizer", {
-				mode: "create",
-				objectId: this.getView().getBindingContext().getProperty("ID"),
-				objectPath: sObjectPath
+			this.getRouter().navTo("registerAsOrganizer", {}, true);
+			/*
+			this.getRouter().getTargets().display("registerAsOrganizer", {
+				mode: "create"
 			});
-*/			
+			*/
 		},
-		
-	
+
 		onAbout: function(oEvent) {
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
 			jQuery.sap.require("sap.m.MessageBox");
