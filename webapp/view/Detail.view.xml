@@ -91,6 +91,16 @@
 			</IconTabBar>
 		</semantic:content>
 
+		<semantic:positiveAction>
+			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant} === null ? true : false}"/>
+		</semantic:positiveAction>
+		<semantic:editAction>
+			<semantic:EditAction id="edit" press="onEdit" visible="{= ${Participant} === null ? false : true }"/>
+		</semantic:editAction>
+		<!--
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
 		<semantic:customFooterContent>
 			<Button 
 				id="ical"
@@ -99,15 +109,6 @@
 				visible="{= ${Participant/RSVP} === 'Y' || ${Participant/RSVP} === 'W'}"
 				press="onCalendarExport" />
 		</semantic:customFooterContent>
-
-		<semantic:positiveAction>
-			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant} === null ? true : false}"/>
-		</semantic:positiveAction>
-		<semantic:editAction>
-			<semantic:EditAction id="edit" press="onEdit" visible="{= ${Participant} === null ? false : true }"/>
-		</semantic:editAction>
-		<semantic:sendEmailAction>
-			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
-		</semantic:sendEmailAction>
+		-->
 	</semantic:DetailPage>
 </mvc:View>
