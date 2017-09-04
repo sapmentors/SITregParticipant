@@ -47,8 +47,7 @@ sap.ui.define([
 			this._oODataModel = this.getOwnerComponent().getModel();
 			this._oCurrentUser = this.getOwnerComponent().getModel("currentUser");
 			this._oResourceBundle = this.getResourceBundle();
-			
-		},		
+		},
 		/**
 		 * Event handler (attached declaratively) for the view save button. Saves the changes added by the user. 
 		 * @function
@@ -56,6 +55,7 @@ sap.ui.define([
 		 * @public
 		 */
 		onSave: function(oEvent) {
+			this.getModel("appView").setProperty("/busy", true);
 			var that = this,
 				oModel = this.getModel();
     		//Get the Path
@@ -79,6 +79,7 @@ sap.ui.define([
 					id: "noChangesInfoMessageBox",
 					styleClass: that.getOwnerComponent().getContentDensityClass()
 				});
+				this.getModel("appView").setProperty("/busy", false);
 				return;
 			}
 			// abort if receipt is requested but no ReceiptCompany or ReceiptAddress is filled. Issue #1
@@ -89,9 +90,9 @@ sap.ui.define([
 					id: "companyAndAdressRequiredMessageBox",
 					styleClass: that.getOwnerComponent().getContentDensityClass()
 				});
+				this.getModel("appView").setProperty("/busy", false);
 				return;
-			}			
-			this.getModel("appView").setProperty("/busy", true);
+			}
 			if (this._oViewModel.getProperty("/mode") === "edit") {
 				// attach to the request completed event of the batch
 				oModel.attachEventOnce("batchRequestCompleted", function(oEvent2) {

@@ -91,7 +91,7 @@
 
 		</semantic:content>
 		<semantic:saveAction>
-			<semantic:SaveAction id="save" press="onSave"/>
+			<semantic:SaveAction id="save" press="onSave" enabled="{= ${appView>/busy} === true ? false : true}"/>
 		</semantic:saveAction>
 		<semantic:cancelAction>
 			<semantic:CancelAction id="cancel" press="onCancel"></semantic:CancelAction>
