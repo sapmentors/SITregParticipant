@@ -94,10 +94,22 @@
 		</semantic:content>
 
 		<semantic:positiveAction>
-			<semantic:PositiveAction text="{i18n>detailRegister}" press="onRegister" visible="{= ${Participant/RSVP} !== 'Y' && ${Participant/RSVP} !== 'W' && ${Participant/RSVP} !== 'N'}"/>
+			<semantic:PositiveAction 
+				text="{i18n>detailRegister}" 
+				press="onRegister" 
+				visible="{= ${Participant/RSVP} !== 'Y' 
+					&amp;&amp; ${Participant/RSVP} !== 'W' 
+					&amp;&amp; ${Participant/RSVP} !== 'N' 
+				}" />
 		</semantic:positiveAction>
 		<semantic:editAction>
-			<semantic:EditAction id="edit" press="onEdit" visible="{= ${Participant/RSVP} === 'Y' || ${Participant/RSVP} === 'W' || ${Participant/RSVP} === 'N'}"/>
+			<semantic:EditAction 
+				id="edit" 
+				press="onEdit" 
+				visible="{= ${Participant/RSVP} === 'Y' 
+					|| ${Participant/RSVP} === 'W' 
+					|| ${Participant/RSVP} === 'N'
+				}"/>
 		</semantic:editAction>
 		<!--
 		<semantic:sendEmailAction>
