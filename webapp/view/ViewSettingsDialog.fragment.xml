@@ -35,6 +35,22 @@
 							key="{EventType}"/>
 				</items>
 			</ViewSettingsFilterItem>
+			<ViewSettingsFilterItem
+					id="filterItems2"
+					text="{i18n>masterFilterVisible}"
+					key="Visible"
+					multiSelect="false">
+				<items>
+					<ViewSettingsItem
+							text="{i18n>yes}"
+							key="Y"
+							id="viewFilterYes"/>
+					<ViewSettingsItem
+							text="{i18n>no}"
+							key="N"
+							id="viewFilterNo"/>
+				</items>
+			</ViewSettingsFilterItem>
 		</filterItems>
 	</ViewSettingsDialog>
 

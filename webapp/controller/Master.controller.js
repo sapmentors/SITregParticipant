@@ -205,6 +205,8 @@ sap.ui.define([
 						default:
 							break;
 					}
+				} else if ( oFilterCompoundKeys.Visible ) {
+					aFilters.push(new Filter("Visible", FilterOperator.EQ, oItem.getKey()));
 				} else if ( oFilterCompoundKeys.Type ) {
 					aFilters.push(new Filter("Type", FilterOperator.EQ, oItem.getKey()));
 				}
