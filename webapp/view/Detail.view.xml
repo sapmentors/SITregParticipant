@@ -23,9 +23,19 @@
 							editable="false"
 							layout="ResponsiveGridLayout">
 							<Label text="{i18n>detailIconTabBarInfoStartTime}"/>
-							<Text text="{ path: 'StartTime', type : 'sap.ui.model.type.Time', formatOptions: { pattern: 'HH:mm'} }"/>
+							<Text
+								text="{ 
+									path: 'StartTime', 
+									type : 'sap.ui.model.type.Time', 
+									formatOptions: { pattern: 'HH:mm', UTC:true } 
+								}"/>
 							<Label text="{i18n>detailIconTabBarInfoEndTime}"/>
-							<Text text="{ path: 'EndTime', type : 'sap.ui.model.type.Time', formatOptions: { pattern: 'HH:mm'} }"/>
+							<Text 
+								text="{ 
+									path: 'EndTime', 
+									type : 'sap.ui.model.type.Time', 
+									formatOptions: { pattern: 'HH:mm', UTC:true } 
+								}"/>
 							<Label text="{i18n>yourRSVP}"/>
 							<Text text="{
 									parts: [
@@ -115,14 +125,15 @@
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
 		</semantic:sendEmailAction>
+		-->
 		<semantic:customFooterContent>
 			<Button 
 				id="ical"
+				text="{i18n>exportCalendar}"
 				tooltip="{i18n>exportCalendar}"
 				icon="sap-icon://appointment"
 				visible="{= ${Participant/RSVP} === 'Y' || ${Participant/RSVP} === 'W'}"
 				press="onCalendarExport" />
 		</semantic:customFooterContent>
-		-->
 	</semantic:DetailPage>
 </mvc:View>
