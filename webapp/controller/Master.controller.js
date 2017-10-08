@@ -200,7 +200,8 @@ sap.ui.define([
 							aFilters.push(new Filter("MaxParticipants", FilterOperator.LE, 50));
 							break;
 						case "Filter2":
-							aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 50));							break;
+							aFilters.push(new Filter("MaxParticipants", FilterOperator.GT, 50));
+							break;
 						default:
 							break;
 					}
