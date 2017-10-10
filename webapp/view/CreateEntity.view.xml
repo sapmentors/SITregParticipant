@@ -42,9 +42,16 @@
 						</buttons>
 					</RadioButtonGroup>					
 				</HBox>
-				<Label text="{i18n>PreEveningEventLabel}" />
-				<HBox >
-					<RadioButtonGroup columns="5" select="onSelectPreEveningEvent">
+				<Label 
+					text="{i18n>PreEveningEventLabel}" 
+					id="PreEveningEventLabel" 
+					visible="{viewModel>/HasPreEveningEvent}" />
+				<HBox 
+					id="PreEveningEventHBox"
+					visible="{viewModel>/HasPreEveningEvent}">
+					<RadioButtonGroup 
+						columns="5" 
+						select="onSelectPreEveningEvent">
 						<buttons>
 							<RadioButton id="YPRE" groupName="PreEveningEventRbt" text="{i18n>yes}"    selected="{= ${PreEveningEvent} === 'Y' ? true : false}"/>
 							<RadioButton id="NPRE" groupName="PreEveningEventRbt" text="{i18n>no}"     selected="{= ${PreEveningEvent} === 'N' ? true : false}"/>
@@ -52,8 +59,13 @@
 						</buttons>
 					</RadioButtonGroup>					
 				</HBox>
-				<Label text="{i18n>PostEveningEventLabel}" />
-				<HBox>
+				<Label 
+					text="{i18n>PostEveningEventLabel}" 
+					id="PostEveningEventLabel" 
+					visible="{viewModel>/HasPostEveningEvent}" />
+				<HBox 
+					id="PostEveningEventHBox" 
+					visible="{viewModel>/HasPostEveningEvent}">
 					<RadioButtonGroup columns="5" select="onSelectPostEveningEvent">
 						<buttons>
 							<RadioButton id="YPost" groupName="PostEveningEventRbt" text="{i18n>yes}" 	 selected="{= ${PostEveningEvent} === 'Y' ? true : false}"/>

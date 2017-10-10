@@ -70,10 +70,18 @@
 								<Column id="RSVP" minScreenWidth="Tablet" demandPopin="true">
 									<Text text="{i18n>detailLineItemTableRSVP}"/>
 								</Column>
-								<Column id="PreEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+								<Column 
+									id="PreEveningEvent" 
+									minScreenWidth="Tablet" 
+									demandPopin="true"
+									visible="{= ${HasPreEveningEvent} === 'Y'}">
 									<Text text="{i18n>detailLineItemTablePreEveningEvent}"/>
 								</Column>
-								<Column id="PostEveningEvent" minScreenWidth="Tablet" demandPopin="true">
+								<Column
+									id="PostEveningEvent" 
+									minScreenWidth="Tablet" 
+									demandPopin="true"
+									visible="{= ${HasPostEveningEvent} === 'Y'}">
 									<Text text="{i18n>detailLineItemTablePostEveningEvent}"/>
 								</Column>
 							</columns>

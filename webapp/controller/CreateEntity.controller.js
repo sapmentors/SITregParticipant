@@ -34,9 +34,10 @@ sap.ui.define([
 						this._oViewModel.setProperty("/enableCreate", false);
 					}
 				}
+				// PreEveningEventLabel
+				this.getView().byId("PreEveningEventLabel").setVisibility(false);
 			});
 		},
-		
 
 		/**
 		 *@memberOf com.sap.sapmentors.sitreg.registration.controller.CreateEntity
@@ -123,15 +124,6 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Called when the add controller is instantiated.
-		 * @public
-		 */
-		/*		onInit: function() {
-
-			// Register to the add route matched
-			this.getRouter().getRoute("register").attachPatternMatched(this._onDisplay, this);
-		},*/
 		/**
 		 * Event handler for navigating back.
 		 * It checks if there is a history entry. If yes, history.go(-1) will happen.
@@ -275,7 +267,19 @@ sap.ui.define([
 		 * @private
 		 */
 		_onDisplay: function(oEvent) {
+			oEvent.HasPreEveningEvent = false;
+			oEvent.HasPostEveningEvent = false;
 			var oData = oEvent.getParameter("data");
+			var sPath = oData.objectPath.replace("Participant", "HasPreEveningEvent");
+			if(this._oODataModel.getProperty(sPath) === "Y") {
+				oEvent.HasPreEveningEvent = true;
+			}
+			
+			sPath = oData.objectPath.replace("Participant", "HasPostEveningEvent");
+			if(this._oODataModel.getProperty(sPath) === "Y") {
+				oEvent.HasPostEveningEvent = true;
+			}
+			
 			if (oData && oData.mode === "update") {
 				this._onEdit(oEvent);
 			} else if (oData && oData.mode === "create") {
@@ -290,6 +294,8 @@ sap.ui.define([
 		_onEdit: function(oEvent) {
 			var oData = oEvent.getParameter("data"),
 				oView = this.getView();
+			this._oViewModel.setProperty("/HasPreEveningEvent", oEvent.HasPreEveningEvent);
+			this._oViewModel.setProperty("/HasPostEveningEvent", oEvent.HasPostEveningEvent);
 			this._oViewModel.setProperty("/mode", "edit");
 			this._oViewModel.setProperty("/enableCreate", true);
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("editViewTitle"));
@@ -321,6 +327,8 @@ sap.ui.define([
 				this.getView().unbindObject();
 				return;
 			}
+			this._oViewModel.setProperty("/HasPreEveningEvent", oEvent.HasPreEveningEvent);
+			this._oViewModel.setProperty("/HasPostEveningEvent", oEvent.HasPostEveningEvent);
 			this._oViewModel.setProperty("/viewTitle", this._oResourceBundle.getText("createViewTitle"));
 			this._oViewModel.setProperty("/mode", "create");
 			var oContext = this._oODataModel.createEntry("/Participant", {
