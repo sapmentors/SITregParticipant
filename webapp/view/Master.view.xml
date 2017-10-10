@@ -36,6 +36,9 @@
 							path: 'EventDate',
 							descending: false
 						},
+                        filters : [
+                            { path : 'Visible', operator : 'EQ', value1 : 'Y' }
+                        ],
 						parameters:{
 							expand:'RegistrationNumbers,Participant,Ticket,EventType'
 						},

@@ -162,7 +162,7 @@ sap.ui.define([
 			 * @param {string} sObjectPath path to the object to be bound to the view.
 			 * @private
 			 */
-			_bindView : function (sObjectPath) {
+			_bindView : function (sObjectPath, oParameters) {
 				// Set busy indicator during view binding
 				var oViewModel = this.getModel("detailView");
 
@@ -171,6 +171,7 @@ sap.ui.define([
 
 				this.getView().bindElement({
 					path : sObjectPath,
+					parameters: oParameters,
 					events: {
 						change : this._onBindingChange.bind(this),
 						dataRequested : function () {
