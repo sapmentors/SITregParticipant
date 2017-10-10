@@ -84,7 +84,7 @@ sap.ui.define([
 				return;
 			}
 			// abort if receipt is requested but no ReceiptCompany or ReceiptAddress is filled. Issue #1
-			if ( (this.getView().byId("idReceipt").getSelected() == true) && 
+			if ( (this.getView().byId("idReceipt").getSelected() === true) && 
 			                                  ( (this.getView().byId("idReceiptCompany").getValue()=== "" )
 			                                 || (this.getView().byId("idReceiptAddress").getValue()=== "") ) ) {
 				MessageBox.information(this._oResourceBundle.getText("companyAndAdressRequired"), {
