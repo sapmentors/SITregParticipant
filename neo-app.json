@@ -1,4 +1,6 @@
 {
+  "welcomeFile": "/webapp/index.html",
+  "sendWelcomeFileRedirect": true,
   "routes": [
     {
       "path": "/webapp/resources",
