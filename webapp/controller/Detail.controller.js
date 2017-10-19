@@ -151,7 +151,7 @@ sap.ui.define([
 					var sObjectPath = this.getModel().createKey("Events", {
 						ID :  sObjectId
 					});
-					this._bindView("/" + sObjectPath, {expand: "Participant"} );
+					this._bindView("/" + sObjectPath, {expand: "RegistrationNumbers,Participant,Ticket,EventType"} );
 				}.bind(this));
 			},
 
