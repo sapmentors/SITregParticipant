@@ -23,6 +23,21 @@
 		"sourceTemplate": {
 			"id": "sap.ui.ui5-template-plugin.2masterdetail",
 			"version": "1.36.2"
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"intent1": {
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"semanticObject": "SAPCommunityEvent",
+					"action": "register",
+					"title": "Register",
+					"subTitle": "SAP Community Event",
+					"info": "Participants of SAP Community Events can use this app to register for Event and edit their registration"
+				}
+			}
 		}
 	},
 	"sap.ui": {
