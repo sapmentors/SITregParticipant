@@ -8,8 +8,9 @@ sap.ui.define([
 	"sap/ui/Device",
 	"com/sap/sapmentors/sitreg/registration/model/formatter",
 	"com/sap/sapmentors/sitreg/registration/model/grouper",
-	"com/sap/sapmentors/sitreg/registration/model/GroupSortState"
-], function(BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device, formatter, grouper, GroupSortState) {
+	"com/sap/sapmentors/sitreg/registration/model/GroupSortState",
+	"sap/m/MessageBox"
+], function(BaseController, JSONModel, Filter, FilterOperator, GroupHeaderListItem, Device, formatter, grouper, GroupSortState, MessageBox) {
 	"use strict";
 
 	return BaseController.extend("com.sap.sapmentors.sitreg.registration.controller.Master", {
@@ -267,7 +268,6 @@ sap.ui.define([
 
 		onAbout: function(oEvent) {
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
-			jQuery.sap.require("sap.m.MessageBox");
 			this._oLayout = sap.ui.xmlfragment("com.sap.sapmentors.sitreg.registration.view.About", this);
 			this.getView().addDependent(this._oLayout);
 			
