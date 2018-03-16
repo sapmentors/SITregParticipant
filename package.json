@@ -3,14 +3,14 @@
     "version": "0.0.1",
     "description": "SAP Event Registration - Front end for Participants",
     "private": false,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/sapmentors/SITregParticipant.git"
-	},
-	"author": "SAP Mentors",
-	"license": "Apache-2.0",
-	"devDependencies": {
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sapmentors/SITregParticipant.git"
+    },
+    "author": "SAP Mentors",
+    "license": "Apache-2.0",
+    "devDependencies": {
         "grunt": "1.0.1",
-        "@sap/grunt-sapui5-bestpractice-build": "^1.3.17"
+        "@sap/grunt-sapui5-bestpractice-build": "1.3.33"
     }
 }
