@@ -1,7 +1,10 @@
 <mvc:View 
 	controllerName="com.sap.sapmentors.sitreg.registration.controller.CreateEntity" 
 	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
-	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic"
+	xmlns:footerbar="sap.ushell.ui.footerbar" 
+	xmlns:l="sap.ui.layout" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:semantic="sap.m.semantic"
 	xmlns="sap.m">
 	<semantic:FullscreenPage
 		id="page"
@@ -78,9 +81,9 @@
 				<core:Title text="{i18n>visibleOnlyForOrganizers}" />
 
 				<Label text="{i18n>EmailLabel}" />
-				<Input id="idEMail" value="{EMail}" />
+				<Input id="idEMail" value="{EMail}" type="Email" />
 				<Label text="{i18n>MobilePhoneLabel}" />
-				<Input id="idMobilePhone" value="{MobilePhone}" />
+				<Input id="idMobilePhone" value="{MobilePhone}" type="Tel" />
 				<Label text="{i18n>RelationToSAPLabel}" />
 				<Select
                     forceSelection="false"
