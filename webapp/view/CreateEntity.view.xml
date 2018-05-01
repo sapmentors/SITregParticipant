@@ -35,7 +35,7 @@
 				<Label text="{i18n>BioURLLabel}" />
 				<Input id="idBioURL" value="{BioURL}" />
 				<Label text="{i18n>TwitterLabel}" />
-				<Input id="idTwitter" value="{Twitter}" />
+				<Input id="idTwitter" value="{Twitter}" maxLength="15" description="{i18n>TwitterWithoutAt}" />
 				<Label text="{i18n>RSVPLabel}" />
 				<HBox >
 					<RadioButtonGroup columns="5" select="onSelectRSVP">
