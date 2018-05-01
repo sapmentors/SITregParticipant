@@ -1,0 +1,11 @@
+@import "dir3/external.css";
+/* dir3/inline.css */
+
+/* dir1/foo.less */
+.foo {
+  background: url("foo.png");
+}
+/* dir2/bar.less */
+.bar {
+  background: url("bar.png");
+}
