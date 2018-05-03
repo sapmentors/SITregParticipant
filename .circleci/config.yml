@@ -31,7 +31,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install-npm-wee
+          name: install-npm
           command: npm install
 
       - save_cache: # special step to save the dependency cache
