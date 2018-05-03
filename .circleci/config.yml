@@ -19,9 +19,9 @@ jobs:
     steps:
       - checkout
 
-#      - run:
-#          name: update-npm
-#          command: 'sudo npm install -g npm@latest'
+      - run:
+          name: install-grunt
+          command: 'sudo npm install -g grunt'
 
       # Download and cache dependencies
       - restore_cache:
