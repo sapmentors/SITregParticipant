@@ -36,20 +36,16 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run:
-          name: install-npm
-          command: npm install
-
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
-
       # run build
       - run: 
           name: Build MTA and Deploy
           command: |
             bash -ex build.sh
+
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
 
       - store_artifacts:
           path: ~/repo/dist
