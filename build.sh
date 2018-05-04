@@ -1,10 +1,11 @@
 # install the MTA archive builder
+WORKSPACE=`pwd`
 mkdir -p ${WORKSPACE}/tmp/mta
 cd ${WORKSPACE}/tmp/mta
 wget -nv --output-document=mta.jar $MTA_BUILDER_URL
 
 # extract artifact name
-cd ~/repo
+cd ${WORKSPACE}
 mtaName=`awk -F: '$1 ~ /^ID/ { gsub(/\s/,"", $2)
 gsub(/\"/,"", $2)
 print $2 }' mta.yaml`
@@ -21,13 +22,6 @@ cd ${WORKSPACE}/tmp/neo-java-web-sdk
 wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.52.15/neo-java-web-sdk-3.52.15.zip'
 unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
-pwd
-cd ~/repo
-pwd
-ls -la
-ls -la tmp
-ls -la tmp/neo-java-web-sdk
-ls -la tmp/neo-java-web-sdk/tools
-cat tmp/neo-java-web-sdk/tools/neo.sh
+cd ${WORKSPACE}
 # deploy to SAP Cloud Platform
-bash -ex tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${mtaName}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
+${WORKSPACE}tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${mtaName}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
