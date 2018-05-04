@@ -20,6 +20,11 @@ jobs:
       - checkout
 
       - run:
+          name: Define Environment Variable WORKSPACE
+          command: |
+            export WORKSPACE=$working_directory
+
+      - run:
           name: install-grunt
           command: 'sudo npm install -g grunt'
 
@@ -40,4 +45,8 @@ jobs:
             - ./node_modules
 
       # run build
-      - run: grunt
+      - run: 
+          name: Build with grunt
+          command: |
+            echo $WORKSPACE
+            grunt
