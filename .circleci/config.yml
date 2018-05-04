@@ -52,3 +52,6 @@ jobs:
           command: |
             echo $WORKSPACE
             grunt
+
+      - store_artifacts:
+          path: ~/repo/dist
