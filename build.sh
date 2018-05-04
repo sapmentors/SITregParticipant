@@ -11,11 +11,7 @@ unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
 
 # extract artifact name
-cd
-ls $WORKSPACE
-cd repo
-#cd ${WORKSPACE}/
-#cd $WORKSPACE
+cd ~/repo
 mtaName=`awk -F: '$1 ~ /^ID/ { gsub(/\s/,"", $2)
 gsub(/\"/,"", $2)
 print $2 }' mta.yaml`
