@@ -28,14 +28,16 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
+          - dependency-cache-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - dependency-cache-
 
       # run build
       - run: 
           name: Build MTA and Deploy
           command: |
+            mkdir -p tmp/mta
+            wget -nv --output-document=tmp/mta/mta.jar $MTA_BUILDER_URL
             bash -ex build.sh
 
       - save_cache: # special step to save the dependency cache
