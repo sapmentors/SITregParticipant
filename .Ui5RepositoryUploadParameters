@@ -1,0 +1,6 @@
+SAPUI5ApplicationName=ZSITREGPAR
+SAPUI5ApplicationPackage=$TMP
+SAPUI5ApplicationDescription=SITreg Participant
+ExternalCodePage=UTF-8
+AcceptUnixStyleEol=True
+DeltaMode=False
