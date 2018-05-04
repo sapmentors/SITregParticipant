@@ -21,8 +21,9 @@ cd ${WORKSPACE}/tmp/neo-java-web-sdk
 wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.52.15/neo-java-web-sdk-3.52.15.zip'
 unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
-ls -la ${WORKSPACE}/tmp/neo-java-web-sdk/tools/
-more ${WORKSPACE}/tmp/neo-java-web-sdk/tools/neo.sh
+ls -la tools
+more tools/neo.sh
 export PATH=$PATH:${WORKSPACE}/tmp/neo-java-web-sdk/tools/
+echo $PATH
 # deploy to SAP Cloud Platform
 neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${mtaName}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
