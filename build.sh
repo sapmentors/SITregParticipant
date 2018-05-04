@@ -21,7 +21,10 @@ cd ${WORKSPACE}/tmp/neo-java-web-sdk
 wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.52.15/neo-java-web-sdk-3.52.15.zip'
 unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
+pwd
 cd ~/repo
+pwd
+ls -la
 ls -la tmp
 ls -la tmp/neo-java-web-sdk
 ls -la tmp/neo-java-web-sdk/tools
