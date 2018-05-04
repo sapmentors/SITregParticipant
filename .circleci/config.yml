@@ -39,7 +39,7 @@ jobs:
             mkdir -p tmp/mta
             wget -nv --output-document=tmp/mta/mta.jar $MTA_BUILDER_URL
             bash -ex build.sh
-            tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${mtaName}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
+            tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${CIRCLE_PROJECT_REPONAME}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
 
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}

@@ -18,7 +18,5 @@ mtaName=`js-yaml mta.yaml | jq -r '.ID'`
 sed -ie "s/\${timestamp}/`date +%Y%m%d%H%M%S`/g" mta.yaml
 
 # execute MTA build
-java -jar ${WORKSPACE}/tmp/mta/mta.jar --mtar ${mtaName}.mtar --build-target=NEO build
+java -jar ${WORKSPACE}/tmp/mta/mta.jar --mtar ${CIRCLE_PROJECT_REPONAME}.mtar --build-target=NEO build
 
-# deploy to SAP Cloud Platform
-#${WORKSPACE}/tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${mtaName}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
