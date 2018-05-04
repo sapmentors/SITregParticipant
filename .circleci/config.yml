@@ -22,7 +22,8 @@ jobs:
       - run:
           name: Define Environment Variable WORKSPACE
           command: |
-            export WORKSPACE=$working_directory
+            echo 'export WORKSPACE=$working_directory' >> $BASH_ENV
+            source $BASH_ENV
 
       - run:
           name: install-grunt
