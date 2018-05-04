@@ -16,6 +16,8 @@ jobs:
 
     working_directory: ~/repo
 
+    context: SCP-Trial
+
     steps:
       - checkout
 
@@ -35,7 +37,6 @@ jobs:
       # run build
       - run: 
           name: Build MTA and Deploy
-          context: SCP-Trial
           command: |
             bash -ex build.sh
 
