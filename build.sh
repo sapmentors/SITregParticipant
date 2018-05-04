@@ -15,7 +15,7 @@ rm neo-java-web-sdk-3.52.15.zip
 cd ${WORKSPACE}
 wget -nv --output-document=jq https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64
 chmod +x ./jq
-mtaName=`js-yaml mta.yaml | jq '.ID'`
+mtaName=`js-yaml mta.yaml | jq -r '.ID'`
 
 # replace timestamp placeholder
 sed -ie "s/\${timestamp}/`date +%Y%m%d%H%M%S`/g" mta.yaml
