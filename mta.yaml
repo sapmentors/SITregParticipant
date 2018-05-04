@@ -10,7 +10,7 @@ modules:
     type: html5
     path: .
     parameters:
-       version: 0.0.1-${timestamp}
+       version: 0.1.0-${timestamp}
     build-parameters:
       builder: grunt
       build-result: dist
