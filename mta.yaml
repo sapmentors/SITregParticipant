@@ -1,0 +1,16 @@
+_schema-version: "2.0.0"
+ID: "com.sap.sapmentors.sitreg.registration"
+version: 0.0.1
+
+parameters:
+  hcp-deployer-version: "1.0.0"
+
+modules:
+  - name: "sitregparticipant"
+    type: html5
+    path: .
+    parameters:
+       version: 0.0.1-${timestamp}
+    build-parameters:
+      builder: grunt
+      build-result: dist

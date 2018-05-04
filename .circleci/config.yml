@@ -24,7 +24,6 @@ jobs:
           command: |
             echo 'export WORKSPACE=$CIRCLE_WORKING_DIRECTORY' >> $BASH_ENV
             source $BASH_ENV
-            echo $WORKSPACE
 
       - run:
           name: install-grunt
@@ -48,10 +47,9 @@ jobs:
 
       # run build
       - run: 
-          name: Build with grunt
+          name: Build MTA and Deploy
           command: |
-            echo $WORKSPACE
-            grunt
+            build.sh
 
       - store_artifacts:
           path: ~/repo/dist
