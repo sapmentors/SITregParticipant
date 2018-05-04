@@ -49,7 +49,7 @@ jobs:
       - run: 
           name: Build MTA and Deploy
           command: |
-            build.sh
+            bash -ex build.sh
 
       - store_artifacts:
           path: ~/repo/dist

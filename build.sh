@@ -10,15 +10,8 @@ wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.52.15
 unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
 
-# create local npmrc file
-cd ${WORKSPACE}/src
-cat <<EOF > .npmrc
-registry=https://registry.npmjs.org/
-@sap:registry=https://npm.sap.com/
-EOF
-
 # extract artifact name
-cd ${WORKSPACE}/src
+cd ${WORKSPACE}
 mtaName=`awk -F: '$1 ~ /^ID/ { gsub(/\s/,"", $2)
 gsub(/\"/,"", $2)
 print $2 }' mta.yaml`
