@@ -47,7 +47,7 @@ jobs:
             - ./node_modules
 
       - store_artifacts:
-          path: ~/dist/mta
+          path: ~/repo/dist/mta
 
 workflows:
   version: 2
