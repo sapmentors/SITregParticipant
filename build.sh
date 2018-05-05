@@ -20,3 +20,5 @@ sed -ie "s/\${timestamp}/`date +%Y%m%d%H%M%S`/g" mta.yaml
 # execute MTA build
 java -jar ${WORKSPACE}/tmp/mta/mta.jar --mtar ${CIRCLE_PROJECT_REPONAME}.mtar --build-target=NEO build
 
+mkdir -p ${WORKSPACE}/dist/mta
+cp ${CIRCLE_PROJECT_REPONAME}.mtar dist/mta
