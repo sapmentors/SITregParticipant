@@ -31,6 +31,14 @@ jobs:
           - dependency-cache-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - dependency-cache-
+      - run: 
+          name: npm-install
+          command: |
+            npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
 
       # run build
       - run: 
@@ -40,11 +48,6 @@ jobs:
             wget -nv --output-document=tmp/mta/mta.jar $MTA_BUILDER_URL
             bash -ex build.sh
             tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${CIRCLE_PROJECT_REPONAME}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
-
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
 
       - store_artifacts:
           path: ~/repo/dist/mta
