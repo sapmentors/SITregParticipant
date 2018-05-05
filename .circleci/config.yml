@@ -47,7 +47,7 @@ jobs:
             - ./node_modules
 
       - store_artifacts:
-          path: ~/repo/dist
+          path: ~/repo/${CIRCLE_PROJECT_REPONAME}.mtar
 
 workflows:
   version: 2
