@@ -1,0 +1,55 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/openjdk:8-jdk-node
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install grunt and js-yaml
+          command: |
+            sudo npm install -g grunt
+            sudo npm install -g js-yaml
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - dependency-cache-{{ checksum "package.json" }}
+
+      # run build
+      - run: 
+          name: Build MTA and Deploy
+          command: |
+            mkdir -p tmp/mta
+            wget -nv --output-document=tmp/mta/mta.jar $MTA_BUILDER_URL
+            bash -ex build.sh
+            tmp/neo-java-web-sdk/tools/neo.sh deploy-mta --user ${CI_DEPLOY_USER} --host ${DEPLOY_HOST} --source ${CIRCLE_PROJECT_REPONAME}.mtar --account ${CI_DEPLOY_ACCOUNT} --password ${CI_DEPLOY_PASSWORD} --synchronous
+
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+
+      - store_artifacts:
+          path: ~/repo/dist/mta
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          context: SCP-Trial
