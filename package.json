@@ -1,6 +1,6 @@
 {
   "name": "sitregparticipant",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "SAP Event Registration - Front end for Participants",
   "private": false,
   "repository": {
