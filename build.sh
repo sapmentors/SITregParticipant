@@ -4,7 +4,7 @@ WORKSPACE=`pwd`
 # install neo command line client
 mkdir -p ${WORKSPACE}/tmp/neo-java-web-sdk
 cd ${WORKSPACE}/tmp/neo-java-web-sdk
-wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.52.15/neo-java-web-sdk-3.52.15.zip'
+wget -nv 'http://central.maven.org/maven2/com/sap/cloud/neo-java-web-sdk/3.68.11/neo-java-web-sdk-3.68.11.zip'
 unzip -qq -o neo-java-web-sdk-3.52.15.zip
 rm neo-java-web-sdk-3.52.15.zip
 
