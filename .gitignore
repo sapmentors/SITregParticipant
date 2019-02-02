@@ -16,3 +16,7 @@ mock_preview_sapui5.html
 .gitignore
 .mta/
 /.user.project.json
+
+AppVariant_index.html
+APIExternalProducer.js
+.*/APIExternalProducer.js
