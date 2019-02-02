@@ -258,8 +258,9 @@ sap.ui.define([
 		 * 
 		 */
 		onAboutRegisterAsOrganizer: function() {
-			this.getRouter().navTo("registerAsOrganizer", {}, true);
+			sap.m.URLHelper.redirect("https://github.com/sapmentors/SITregParticipant/issues/4", true);
 			/*
+			this.getRouter().navTo("registerAsOrganizer", {}, true);
 			this.getRouter().getTargets().display("registerAsOrganizer", {
 				mode: "create"
 			});
