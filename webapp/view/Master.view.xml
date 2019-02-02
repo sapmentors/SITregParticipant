@@ -10,11 +10,17 @@
 			title="{masterView>/title}">
 
 		<semantic:customHeaderContent>
-			<Button 
-				id="about"
-				icon="sap-icon://message-information" 
-				tooltip="About"
-				press="onAbout"/>
+			<MenuButton icon="sap-icon://message-information" useDefaultActionOnly="true">
+				<menu>
+					<Menu itemSelected="onMenuAction">
+						<items>
+							<MenuItem id="about"   text="About" />
+							<MenuItem id="privacy" text="Privacy Statement" />
+							<MenuItem id="legal"   text="Legal Disclosure" />
+						</items>
+					</Menu>
+				</menu>
+			</MenuButton>
 		</semantic:customHeaderContent>
 
 		<semantic:subHeader>

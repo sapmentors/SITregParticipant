@@ -265,6 +265,23 @@ sap.ui.define([
 			});
 			*/
 		},
+		
+		onMenuAction: function(oEvent) {
+			var oItem = oEvent.getParameter("item"),
+				sItemPath = "",
+				sId = "";
+			if (oItem instanceof sap.m.MenuItem) {
+				sItemPath = oItem.getText();
+				sId = oItem.getId();
+			}
+			if(sId.endsWith("about")) {
+				this.onAbout(oEvent);
+			} else if(sId.endsWith("privacy")) {
+				sap.m.URLHelper.redirect("https://www.sap.com/about/legal/privacy.html", true);
+			} else if(sId.endsWith("legal")) {
+				sap.m.URLHelper.redirect("https://www.sap.com/about/legal/impressum.html", true);
+			}
+		},
 
 		onAbout: function(oEvent) {
 			var bCompact = !!this.getView().$().closest(".sapUiSizeCompact").length;
