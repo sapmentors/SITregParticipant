@@ -20,3 +20,5 @@ mock_preview_sapui5.html
 AppVariant_index.html
 APIExternalProducer.js
 .*/APIExternalProducer.js
+preview.json
+cp.project.properties.json
