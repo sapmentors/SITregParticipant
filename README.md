@@ -1,4 +1,5 @@
 # SITregParticipant
+
 SAP Event Registration - Front end for Participants
 
 Back-end project: [SITreg](https://github.com/sapmentors/SITreg)
