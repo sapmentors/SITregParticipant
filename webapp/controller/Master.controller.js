@@ -290,11 +290,13 @@ sap.ui.define([
 			this.getView().addDependent(this._oLayout);
 			
 			var arrayAboutButtons = [
+					/*
 					new sap.m.Button({
 						text: this.getResourceBundle().getText("ButtonRequestOrganiserRole"), 
 						type: sap.m.ButtonType.Accept,
 						press: this.onAboutRegisterAsOrganizer
 					}),
+					*/
 					
 					new sap.m.Button({
 						text: this.getResourceBundle().getText("ButtonAboutClose"), 
