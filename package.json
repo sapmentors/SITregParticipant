@@ -7,16 +7,18 @@
     "type": "git",
     "url": "https://github.com/sapmentors/SITregParticipant.git"
   },
+  "scripts": {
+    "build": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo"
+  },
   "author": "SAP Mentors",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@sap/grunt-sapui5-bestpractice-build": "^1.4.0",
-    "grunt": "^1.0.4",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
-    "grunt-contrib-uglify": "^3.4.0",
-    "grunt-mkdir": "^1.0.0",
-    "grunt-openui5": "^0.15.0"
+    "@ui5/cli": "^1.6.0",
+    "@sap/ui5-builder-webide-extension": "1.0.2"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ui5-builder-webide-extension"
+    ]
   }
 }
