@@ -21,6 +21,7 @@ sed -ie "s/\${timestamp}/`date +%Y%m%d%H%M%S`/g" mta.yaml
 mkdir -p ${WORKSPACE}/dist
 npm install
 npm run build
+cp nep-app.json ${WORKSPACE}/dist
 java -jar ${WORKSPACE}/tmp/mta/mta.jar --mtar ${CIRCLE_PROJECT_REPONAME}.mtar --build-target=NEO build
 mkdir -p ${WORKSPACE}/dist/mta
 cp ${CIRCLE_PROJECT_REPONAME}.mtar dist/mta/${CIRCLE_PROJECT_REPONAME}-`date +%Y%m%d%H%M%S`.mtar
