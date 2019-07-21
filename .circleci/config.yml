@@ -19,11 +19,11 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Install grunt and js-yaml
-          command: |
-            sudo npm install -g grunt
-            sudo npm install -g js-yaml
+      #- run:
+      #    name: Install grunt and js-yaml
+      #    command: |
+      #      sudo npm install -g grunt
+      #      sudo npm install -g js-yaml
 
       # Download and cache dependencies
       - restore_cache:
