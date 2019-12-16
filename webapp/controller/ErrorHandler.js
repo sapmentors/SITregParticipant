@@ -22,10 +22,24 @@ sap.ui.define([
 
 				this._oModel.attachMetadataFailed(function (oEvent) {
 					// Do we have to login?
-					if (oEvent.mParameters.response.headers["com.sap.cloud.security.login"] === "login-request") {
+					var oParams = oEvent.getParameters();
+					if (oParams.response.headers["com.sap.cloud.security.login"] === "login-request") {
 						window.location.reload();
 					}
-					var oParams = oEvent.getParameters();
+
+					//Relogin in a seperate Window and close it again, typed in information by the user is kept this way
+					var sCacheControl = oParams.response.headers["cache-control"] || "";
+					var bSamlInvalid = sCacheControl.includes("must-revalidate");
+					if (bSamlInvalid) {
+						var wnd = window.open("about:blank", '_blank', 'toolbar=no,status=no,menubar=no,scrollbars=no,resizable=no,left=10000, top=10000, width=10, height=10, visible=none', '');
+						wnd.blur();
+				        wnd.document.write(oParams.response.responseText);
+				        wnd.document.close();
+				        setTimeout(function() {
+						    wnd.close();
+							}, 3000);
+						}
+					
 					this._showMetadataError(oParams.response);
 				}, this);
 
