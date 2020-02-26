@@ -13,8 +13,8 @@
   "author": "SAP Mentors",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ui5/cli": "^1.6.0",
-    "@sap/ui5-builder-webide-extension": "1.0.2"
+    "@ui5/cli": "^1.14.0",
+    "@sap/ui5-builder-webide-extension": "1.0.9"
   },
   "ui5": {
     "dependencies": [
