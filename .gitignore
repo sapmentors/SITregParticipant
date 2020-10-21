@@ -24,3 +24,6 @@ preview.json
 cp.project.properties.json
 
 mta_archives/
+/mta_archives/
+AppVariantPreviewPayload.zip
+mergedManifestDescriptor.json
