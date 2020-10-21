@@ -201,14 +201,14 @@ sap.ui.define([
 					oResourceBundle = this.getResourceBundle(),
 					oObject = oView.getModel().getObject(sPath),
 					sObjectLocation = oObject.Location,
-					sObjectEventDate = oObject.EventDate,
+					sObjectStartTime = oObject.StartTime,
 					// sObjectParticipantID = oObject.Participant.ID,
 					oViewModel = this.getModel("detailView");
 
 				this.getOwnerComponent().oListSelector.selectAListItem(sPath);
 
 				oViewModel.setProperty("/shareSendEmailSubject",
-					oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectEventDate, sObjectLocation]));
+					oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectStartTime, sObjectLocation]));
 				oViewModel.setProperty("/shareSendEmailMessage",
 					oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectLocation, location.href]));
 			},

@@ -48,7 +48,7 @@
 					items="{
 						path: '/Events',
 						sorter: {
-							path: 'EventDate',
+							path: 'StartTime',
 							descending: false
 						},
                         filters : [
@@ -84,7 +84,7 @@
 							title="{Location}"
 							numberUnit="{Description}"
 							number="{
-								path: 'EventDate',
+								path: 'StartTime',
 								type: 'sap.ui.model.type.Date',
 								formatOptions: {
 									style: 'medium'
@@ -121,7 +121,7 @@
 					change="onSort">
 				<core:Item
 						id="masterSort0"
-						key="EventDate"
+						key="StartTime"
 						text="{i18n>masterSort0}"/>
 				<core:Item
 						id="masterSort1"
@@ -155,7 +155,7 @@
 						text="{i18n>masterGroup1}"/>
 				<core:Item
 						id="masterGroup2"
-						key="EventDate"
+						key="StartTime"
 						text="{i18n>masterGroup2}"/>
 				<core:Item
 						id="masterGroup3"

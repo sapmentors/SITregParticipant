@@ -8,13 +8,14 @@
     "url": "https://github.com/sapmentors/SITregParticipant.git"
   },
   "scripts": {
-    "build": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo"
+    "build": "npm run build:ui5 && cp neo-app.json dist",
+    "build:ui5": "ui5 build --include-task=generateManifestBundle generateCachebusterInfo"
   },
   "author": "SAP Mentors",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ui5/cli": "^1.14.0",
-    "@sap/ui5-builder-webide-extension": "1.0.9"
+    "@ui5/cli": "^2.4.5",
+    "@sap/ui5-builder-webide-extension": "^1.0.14"
   },
   "ui5": {
     "dependencies": [

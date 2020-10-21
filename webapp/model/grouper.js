@@ -39,14 +39,14 @@ sap.ui.define([
 				};
 			},
 			
-			groupEventDate : function (oResourceBundle) {
+			groupStartTime : function (oResourceBundle) {
 				return function (oContext) {
-					var dEventDate = new Date(oContext.getProperty("EventDate")),
+					var dStartTime = new Date(oContext.getProperty("StartTime")),
 						dNow = new Date(),
 						sKey,
 						sText;
 
-					if (dEventDate <= dNow) {
+					if (dStartTime <= dNow) {
 						sKey = "LENOW";
 						sText = oResourceBundle.getText("masterGroup2Header1");
 					} else {

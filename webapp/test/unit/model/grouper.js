@@ -62,7 +62,7 @@ sap.ui.define([
 			oGrouperReturn;
 
 		// System under test
-		var fnGroup = Grouper.groupEventDate(this._oResourceModel.getResourceBundle());
+		var fnGroup = Grouper.groupStartTime(this._oResourceModel.getResourceBundle());
 
 		// Assert
 		oGrouperReturn = fnGroup(oContextObject);

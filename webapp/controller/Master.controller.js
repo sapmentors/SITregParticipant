@@ -44,9 +44,9 @@ sap.ui.define([
 										grouper.groupLocation(this.getResourceBundle())
 									);
 
-			this._oGroupSortStateEventDate = new GroupSortState(
+			this._oGroupSortStateStartTime = new GroupSortState(
 										oViewModel, 
-										grouper.groupEventDate(this.getResourceBundle())
+										grouper.groupStartTime(this.getResourceBundle())
 									);
 
 			this._oGroupSortStateEventType = new GroupSortState(
@@ -333,7 +333,7 @@ sap.ui.define([
 				delay: 0,
 				title: this.getResourceBundle().getText("masterTitleCount", [0]),
 				noDataText: this.getResourceBundle().getText("masterListNoDataText"),
-				sortBy: "EventDate",
+				sortBy: "StartTime",
 				groupBy: "None"
 			});
 		},
@@ -344,8 +344,8 @@ sap.ui.define([
 				aSorter = this._oGroupSortStateMaxParticipants.group(sKey);
 			} else if (sKey === "Location") {
 				aSorter = this._oGroupSortStateLocation.group(sKey);
-			} else if (sKey === "EventDate") {
-				aSorter = this._oGroupSortStateEventDate.group(sKey);
+			} else if (sKey === "StartTime") {
+				aSorter = this._oGroupSortStateStartTime.group(sKey);
 			} else if (sKey === "EventType") {
 				aSorter = this._oGroupSortStateEventType.group(sKey);
 			}
