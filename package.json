@@ -14,7 +14,7 @@
   "author": "SAP Mentors",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@ui5/cli": "^2.14.0",
+    "@ui5/cli": "^2.14.19",
     "@sap/ui5-builder-webide-extension": "^1.1.6"
   },
   "ui5": {
