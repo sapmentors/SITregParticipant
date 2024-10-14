@@ -50,6 +50,7 @@
 						<Table id="lineItemsList"
 							width="auto"
 							items="{Participants}"
+							growing="true" growingThreshold="100"
 							updateFinished="onListUpdateFinished"
 							noDataText="{i18n>detailLineItemTableNoDataText}"
 							busyIndicatorDelay="{detailView>/lineItemTableDelay}"
