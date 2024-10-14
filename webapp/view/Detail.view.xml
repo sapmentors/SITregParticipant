@@ -1,10 +1,11 @@
-<mvc:View xmlns="sap.m" 
-	xmlns:mvc="sap.ui.core.mvc" 
-	xmlns:semantic="sap.m.semantic" 
+<mvc:View xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic"
 	xmlns:f="sap.ui.layout.form"
 	xmlns:p="com.penninkhof.controls"
 	controllerName="com.sap.sapmentors.sitreg.registration.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}"
+		title="{i18n>detailTitle}"
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
 			<ObjectHeader id="objectHeader" title="{Description}"
@@ -18,116 +19,119 @@
 			</ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
-						<f:SimpleForm 
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint"
+						tooltip="{i18n>detailIconTabBarInfo}">
+						<f:SimpleForm
 							editable="false"
 							layout="ResponsiveGridLayout">
-							<Label text="{i18n>detailIconTabBarInfoStartTime}"/>
+							<Label text="{i18n>detailIconTabBarInfoStartTime}" />
 							<Text
 								text="{ 
 									path: 'StartTime', 
 									type : 'sap.ui.model.type.Time', 
 									formatOptions: { pattern: 'HH:mm' } 
-								}"/>
-							<Label text="{i18n>detailIconTabBarInfoEndTime}"/>
-							<Text 
+								}" />
+							<Label text="{i18n>detailIconTabBarInfoEndTime}" />
+							<Text
 								text="{ 
 									path: 'EndTime', 
 									type : 'sap.ui.model.type.Time', 
 									formatOptions: { pattern: 'HH:mm' } 
-								}"/>
-							<Label text="{i18n>yourRSVP}"/>
-							<Text text="{
+								}" />
+							<Label text="{i18n>yourRSVP}" />
+							<Text
+								text="{
 									parts: [
 										{path: 'Participant/RSVP'}
 									],
 									formatter : '.formatter.RSVPstatus'
-								}"/>
+								}" />
 						</f:SimpleForm>
-						<Table id="lineItemsList" 
-							width="auto" 
-							items="{Participants}" 
+						<Table id="lineItemsList"
+							width="auto"
+							items="{Participants}"
 							updateFinished="onListUpdateFinished"
-							noDataText="{i18n>detailLineItemTableNoDataText}" 
-							busyIndicatorDelay="{detailView>/lineItemTableDelay}" 
-							growing="true" growingThreshold="100" 
+							noDataText="{i18n>detailLineItemTableNoDataText}"
+							busyIndicatorDelay="{detailView>/lineItemTableDelay}"
 							class="sapUiResponsiveMargin">
 							<headerToolbar>
 								<Toolbar id="lineItemsToolbar">
-									<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+									<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}" />
 								</Toolbar>
 							</headerToolbar>
 							<columns>
 								<Column id="ParticipantID">
-									<Text text="ID"/>
+									<Text text="ID" />
 								</Column>
 								<Column id="ParticipantName">
-									<Text text="{i18n>detailLineItemTableParticipantName}"/>
+									<Text text="{i18n>detailLineItemTableParticipantName}" />
 								</Column>
 								<Column id="Twitter" minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
-									<Text text="{i18n>detailLineItemTableTwitter}"/>
+									<Text text="{i18n>detailLineItemTableTwitter}" />
 								</Column>
 								<Column id="RSVP" minScreenWidth="Tablet" demandPopin="true">
-									<Text text="{i18n>detailLineItemTableRSVP}"/>
-								</Column>
-								<Column 
-									id="PreEveningEvent" 
-									minScreenWidth="Tablet" 
-									demandPopin="true"
-									visible="{= ${HasPreEveningEvent} === 'Y'}">
-									<Text text="{i18n>detailLineItemTablePreEveningEvent}"/>
+									<Text text="{i18n>detailLineItemTableRSVP}" />
 								</Column>
 								<Column
-									id="PostEveningEvent" 
-									minScreenWidth="Tablet" 
+									id="PreEveningEvent"
+									minScreenWidth="Tablet"
+									demandPopin="true"
+									visible="{= ${HasPreEveningEvent} === 'Y'}">
+									<Text text="{i18n>detailLineItemTablePreEveningEvent}" />
+								</Column>
+								<Column
+									id="PostEveningEvent"
+									minScreenWidth="Tablet"
 									demandPopin="true"
 									visible="{= ${HasPostEveningEvent} === 'Y'}">
-									<Text text="{i18n>detailLineItemTablePostEveningEvent}"/>
+									<Text text="{i18n>detailLineItemTablePostEveningEvent}" />
 								</Column>
 							</columns>
 							<items>
 								<ColumnListItem>
 									<cells>
-										<ObjectIdentifier text="{ID}"/>
-										<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank" text="{FirstName} {LastName}"/>
-										<Link href="https://twitter.com/{Twitter}" enabled="{= ${Twitter} ? true : false }" target="_blank" text="{Twitter}"/>
-										<Text text="{ path: 'RSVP', formatter : '.formatter.eventValue' }"/>
-										<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }"/>
-										<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }"/>
+										<ObjectIdentifier text="{ID}" />
+										<Link href="{BioURL}" enabled="{= ${BioURL} ? true : false }" target="_blank"
+											text="{FirstName} {LastName}" />
+										<Link href="https://twitter.com/{Twitter}"
+											enabled="{= ${Twitter} ? true : false }" target="_blank" text="{Twitter}" />
+										<Text text="{ path: 'RSVP', formatter : '.formatter.eventValue' }" />
+										<Text text="{ path: 'PreEveningEvent', formatter : '.formatter.eventValue' }" />
+										<Text text="{ path: 'PostEveningEvent', formatter : '.formatter.eventValue' }" />
 									</cells>
 								</ColumnListItem>
 							</items>
 						</Table>
 					</IconTabFilter>
-					<IconTabFilter 
-						id="iconTabBarFilter2" 
-						icon="sap-icon://bar-code" 
+					<IconTabFilter
+						id="iconTabBarFilter2"
+						icon="sap-icon://bar-code"
 						tooltip="{i18n>detailIconTabBarTicket}"
 						enabled="{= ${Ticket} === null ? false : true }">
 						<p:QRCode class="sapUiMediumMargin"
-							  code="{Ticket/SHA256HASH}" />
+							code="{Ticket/SHA256HASH}" />
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
 		</semantic:content>
 
 		<semantic:positiveAction>
-			<semantic:PositiveAction 
-				text="{i18n>detailRegister}" 
-				press="onRegister" 
+			<semantic:PositiveAction
+				text="{i18n>detailRegister}"
+				press="onRegister"
 				visible="{= ${Participant/RSVP} !== 'Y' 
 					&amp;&amp; ${Participant/RSVP} !== 'W' 
 					&amp;&amp; ${Participant/RSVP} !== 'N' 
 				}" />
 		</semantic:positiveAction>
 		<semantic:editAction>
-			<semantic:EditAction 
-				id="edit" 
-				press="onEdit" 
+			<semantic:EditAction
+				id="edit"
+				press="onEdit"
 				visible="{= ${Participant/RSVP} === 'Y' 
 					|| ${Participant/RSVP} === 'W' 
 					|| ${Participant/RSVP} === 'N'
-				}"/>
+				}" />
 		</semantic:editAction>
 		<!--
 		<semantic:sendEmailAction>
@@ -135,7 +139,7 @@
 		</semantic:sendEmailAction>
 		-->
 		<semantic:customFooterContent>
-			<Button 
+			<Button
 				id="ical"
 				text="{i18n>exportCalendar}"
 				tooltip="{i18n>exportCalendar}"
