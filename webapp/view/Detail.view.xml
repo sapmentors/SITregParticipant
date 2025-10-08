@@ -16,6 +16,11 @@
 				}">
 				<ObjectAttribute
 					text="{Location}" />
+				<ObjectAttribute
+					id="objectAttributeHomepageURL"
+					text="{HomepageURL}"
+					active="true"
+					press="handleLinkObjectAttributePress" />
 			</ObjectHeader>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>

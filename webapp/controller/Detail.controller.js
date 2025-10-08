@@ -2,9 +2,11 @@
 sap.ui.define([
 		"com/sap/sapmentors/sitreg/registration/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
-		"com/sap/sapmentors/sitreg/registration/model/formatter"
-	], function (BaseController, JSONModel, formatter) {
+		"com/sap/sapmentors/sitreg/registration/model/formatter",
+		"sap/m/library"
+	], function (BaseController, JSONModel, formatter, MLibrary) {
 		"use strict";
+		var URLHelper = MLibrary.URLHelper;
 
 		return BaseController.extend("com.sap.sapmentors.sitreg.registration.controller.Detail", {
 
@@ -34,6 +36,12 @@ sap.ui.define([
 			/* =========================================================== */
 			/* event handlers                                              */
 			/* =========================================================== */
+
+
+			handleLinkObjectAttributePress: function (oEvent) {
+				URLHelper.redirect("https://www.piacere-nuovo.com", true);
+			},
+
 			/**
 			 * Event handler when the Export to Calendar button has been clicked
 			 */
