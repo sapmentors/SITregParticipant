@@ -39,7 +39,7 @@ sap.ui.define([
 
 
 			handleLinkObjectAttributePress: function (oEvent) {
-				URLHelper.redirect("https://www.piacere-nuovo.com", true);
+				URLHelper.redirect(oEvent.oSource.mProperties.text, true);
 			},
 
 			/**
